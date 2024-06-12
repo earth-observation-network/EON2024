@@ -9,11 +9,7 @@ about:
   template: solana
   image-shape: round
   image-width: 10em
-editor: 
-  markdown: 
-    wrap: 72
-editor_options: 
-  chunk_output_type: console
+
 ---
 
 ::: {#image-heading}
