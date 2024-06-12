@@ -89,7 +89,7 @@ You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.
 -   Tuesday (Waldhaus & Excursion):
     -   09:00-12:00h **Block 2 ????** in the context of forest monitoring (??Andrea Plazas??, Forstplanungsamt)
     -   12:30 Lunch @ Waldhaus
-    -   14:00-16:00 **Block 3 ????** in the context of forest monitoring (Jacob Novosad)
+    -   14:00-16:00 **Block 3 ????** in the context of forest monitoring (Jakub Nowosad)
     -   16:00-18:00 Group work
       
 -   Wednesday (Waldhaus & Excursion):
