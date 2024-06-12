@@ -236,21 +236,33 @@
     "href": "index.html",
     "title": "Welcome EON Summer School 2024 (01.9-06.09-2024)",
     "section": "",
-    "text": "Polsterberger Hubhaus 2022\n\n\n\n\n\n\n\nPolsterberger Hubhaus 2023"
+    "text": "Polsterberger Hubhaus 2022\n\n\n\n\n\n\n\nPolsterberger Hubhaus 2023",
+    "crumbs": [
+      "Welcome",
+      "Welcome EON Summer School 2024 (01.9-06.09-2024)"
+    ]
   },
   {
     "objectID": "index.html#datasets",
     "href": "index.html#datasets",
     "title": "Welcome EON Summer School 2024 (01.9-06.09-2024)",
     "section": "Datasets",
-    "text": "Datasets\n\nAirborne Laser Scanning (ALS) data ca. 2016\nUAV RGB & multispectral data 2022 2023\nDOP (20cm)\nPlanetScope Scene (R,G,B,NIR) covering the entire Harz from 24.08.2022\n\n- Digitial elevation model (25m) from https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1 covering the entire Harz"
+    "text": "Datasets\n\nAirborne Laser Scanning (ALS) data ca. 2016\nUAV RGB & multispectral data 2022 2023\nDOP (20cm)\nPlanetScope Scene (R,G,B,NIR) covering the entire Harz from 24.08.2022\n\n- Digitial elevation model (25m) from https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1 covering the entire Harz",
+    "crumbs": [
+      "Welcome",
+      "Welcome EON Summer School 2024 (01.9-06.09-2024)"
+    ]
   },
   {
     "objectID": "index.html#sensors-equipment",
     "href": "index.html#sensors-equipment",
     "title": "Welcome EON Summer School 2024 (01.9-06.09-2024)",
     "section": "Sensors & Equipment",
-    "text": "Sensors & Equipment\n\nHAWK:\n\nMavic 3 (Enterprise + Thermal + Multispectral)\nGNSS (Emlid, Alberding, Garmin)\nTablets (Android)\nForest Measurement Devices (diameter tapes, calipers, vertex, laser range finders, …)\nGeoSlam Mobile Laser Scanner\n\nUni Münster:\n\nMica Sens red edge (Multispektral)\nWIRIS thermal camera\nL1 Lidar (Dji)\nSony Alpha (42mp) RGB camera\nppm 10xx GNSS Sensor\n\nUni Marburg:\n\nMavic 3 (Enterprise + Thermal + Multispectral)\nMavic 3 Mini Pro\nLoRa based real time climate sensors"
+    "text": "Sensors & Equipment\n\nHAWK:\n\nMavic 3 (Enterprise + Thermal + Multispectral)\nGNSS (Emlid, Alberding, Garmin)\nTablets (Android)\nForest Measurement Devices (diameter tapes, calipers, vertex, laser range finders, …)\nGeoSlam Mobile Laser Scanner\n\nUni Münster:\n\nMica Sens red edge (Multispektral)\nWIRIS thermal camera\nL1 Lidar (Dji)\nSony Alpha (42mp) RGB camera\nppm 10xx GNSS Sensor\n\nUni Marburg:\n\nMavic 3 (Enterprise + Thermal + Multispectral)\nMavic 3 Mini Pro\nLoRa based real time climate sensors",
+    "crumbs": [
+      "Welcome",
+      "Welcome EON Summer School 2024 (01.9-06.09-2024)"
+    ]
   },
   {
     "objectID": "slides/slidelist.html",
