@@ -79,30 +79,36 @@ You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.
 -   Sunday (Waldhaus):
     -   17:00-17:30 Check-in \@ "The Cabin" (Waldhaus) Oderbrück
     -   17:30-18:00 Welcome & Introduction
+    
 -   Monday (Waldhaus):
     -    09:00-12:00 **Excursion with local forest district manager** to get an introduce to the Harz region and its current situation
-    -     15:30-18:00h Conceptional project development (all)
+    -    12:30 Lunch @ Waldaus
+    -    14:00-16:00 **Block 1 Collection of reference data** in the context of forest monitoring (Paul Magdon, HAWK)
+    -    16:30-18:00h Conceptional project development (all Groups)
+      
 -   Tuesday (Waldhaus & Excursion):
-    -   09:00-12:00h Walk & Talk
-    -   12:30 Lunch (Waldhaus)
-    -   14:00-16:00 Group work
-    -   16:00-18:00 **Block 1 Collection of reference data** in the context of forest monitoring (Paul Magdon, HAWK)
+    -   09:00-12:00h **Block 2 ????** in the context of forest monitoring (??Andrea Plazas??, Forstplanungsamt)
+    -   12:30 Lunch @ Waldhaus
+    -   14:00-16:00 **Block 3 ????** in the context of forest monitoring (Jacob Novosad)
+    -   16:00-18:00 Group work
+      
 -   Wednesday (Waldhaus & Excursion):
     -   9:00-12:00 **Exkursion to National Park Harz** and meeting with park researchers????
-    -   13:00 Lunch @ Polsterbergerhubhaus ??
+    -   12:30 Lunch @ Polsterbergerhubhaus ??
     -   14:00 - **Joint data collections campaign** \@ Polstertalerhubhaus
+    
 -   Thursday (Waldhaus):
     -   9:00:10:00 **Block 2 Measuring microclimate with mobile climate station** (Chris Reudenbach, Uni Marburg)
     -   10:00-11:00 **Block 3 Modelling microclimate** (Chris Reudenbach, Uni Marburg)
     -   11:00-12:00 group work
-    -   12:00-12:30 Lunch
-    -   12:30-14:00 human sensing of the environment (a.k.a walk & talk)
-    -   15:00-17:30 **Block 4 "Machine learning and validation"** (Hanna Meyer, Uni Münster)
+    -   12:30 Lunch @ Waldhaus
+    -   14:00-16:00 human sensing of the environment (a.k.a walk & talk)
+    -   16:00-18:00 **Block 4 "Machine learning and validation"** (Hanna Meyer, Uni Münster)
+  
 -   Friday (Waldhaus):
     -   09:00-11:00 Group work
     -   11:00-12:00 **Final Presentation of the group work**
     -   12:00-13:00 Workshop closing / evaluation
-
     -   
         ## 14:00 pm Departure
 
