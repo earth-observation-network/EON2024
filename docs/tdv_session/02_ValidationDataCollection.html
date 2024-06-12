@@ -191,8 +191,11 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
- <span class="menu-text">index.md</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome EON Summer School 2024 (01.9-06.09-2024)</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -322,9 +325,7 @@ window.Quarto = {
 
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.3.1; sf_use_s2() is TRUE</code></pre>
 </div>
@@ -395,7 +396,7 @@ RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{ctor. Also today there was wind, not good for
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">extract</span>((agb_pop<span class="sc">-</span>agb_model),<span class="fu">as_Spatial</span>(p1))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>RMSE_est <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((sample)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The random sample estimates the RMSE as 41.11.</p>
+<p>The random sample estimates the RMSE as 41.88.</p>
 <p>But is this an unbiased estimate?</p>
 </section>
 <section id="simulation-of-many-random-samples" class="level1">
@@ -478,7 +479,7 @@ RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{ctor. Also today there was wind, not good for
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(RMSE_2)<span class="sc">/</span><span class="fu">sd</span>(RMSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6699567</code></pre>
+<pre><code>[1] 0.6922734</code></pre>
 </div>
 </div>
 </section>
