@@ -18,11 +18,11 @@ library(RStoolbox)
 library(raster)
 library(knitr)
 library(ggplot2)
-library(rmarkdown)
+
 library(patchwork)
 library(mapview)
 library(kableExtra)
-library(rmarkdown)
+
 library(rprojroot)
 ```
 
