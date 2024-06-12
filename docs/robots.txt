@@ -1,1 +1,0 @@
-Sitemap: https://earth-observation-network.github.io/EON2024/sitemap.xml
