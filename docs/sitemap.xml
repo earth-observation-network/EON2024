@@ -1,91 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://earth-observation-network.github.io/EON2024/templates/slides-template.html</loc>
-    <lastmod>2024-06-12T19:56:53.754Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/modules/de-git-module.html</loc>
-    <lastmod>2024-06-12T19:56:53.574Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/base/about.html</loc>
-    <lastmod>2024-03-14T07:43:26.456Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/base/faq.html</loc>
-    <lastmod>2024-03-14T07:43:24.784Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/mc_session/mc1.html</loc>
-    <lastmod>2024-06-12T19:56:53.478Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/assessment/slidelist.html</loc>
-    <lastmod>2024-03-14T07:42:27.315Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/assessment/git-more.html</loc>
-    <lastmod>2024-03-14T07:42:26.371Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/tdv_session/02_ValidationDataCollection.html</loc>
-    <lastmod>2024-06-12T21:03:40.927Z</lastmod>
-  </url>
-  <url>
     <loc>https://earth-observation-network.github.io/EON2024/index.html</loc>
     <lastmod>2024-06-12T19:56:53.450Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/slides/slidelist.html</loc>
-    <lastmod>2024-03-14T07:35:52.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/slides/slide1.html</loc>
-    <lastmod>2024-03-14T07:35:52.089Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/ml_session/ML_AOA.html</loc>
-    <lastmod>2024-06-12T19:56:53.506Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/tdv_session/01_TrainingDataCollection.html</loc>
-    <lastmod>2024-06-12T21:03:38.943Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/assessment/en-git-more.html</loc>
-    <lastmod>2024-03-14T07:42:25.919Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/assessment/learnr_app-2.html</loc>
-    <lastmod>2024-03-14T07:42:26.823Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/mc_session/mc4.html</loc>
-    <lastmod>2024-06-12T19:56:53.482Z</lastmod>
   </url>
   <url>
     <loc>https://earth-observation-network.github.io/EON2024/mc_session/mc3.html</loc>
     <lastmod>2024-06-12T21:00:05.131Z</lastmod>
   </url>
   <url>
+    <loc>https://earth-observation-network.github.io/EON2024/tdv_session/01_TrainingDataCollection.html</loc>
+    <lastmod>2024-06-12T21:03:38.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/ml_session/ML_AOA.html</loc>
+    <lastmod>2024-06-12T19:56:53.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/mc_session/mc1.html</loc>
+    <lastmod>2024-06-12T19:56:53.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/mc_session/mc4.html</loc>
+    <lastmod>2024-06-12T19:56:53.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/tdv_session/02_ValidationDataCollection.html</loc>
+    <lastmod>2024-06-12T21:03:40.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/base/about.html</loc>
+    <lastmod>2024-06-12T19:56:53.174Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/base/faq.html</loc>
+    <lastmod>2024-06-12T21:47:31.579Z</lastmod>
+  </url>
+  <url>
     <loc>https://earth-observation-network.github.io/EON2024/base/impressum.html</loc>
-    <lastmod>2024-03-14T07:43:26.008Z</lastmod>
+    <lastmod>2024-06-12T19:56:53.174Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/modules/de-git-module.html</loc>
+    <lastmod>2024-06-12T19:56:53.574Z</lastmod>
   </url>
   <url>
     <loc>https://earth-observation-network.github.io/EON2024/modules/en-git-module.html</loc>
     <lastmod>2024-06-12T19:56:53.574Z</lastmod>
   </url>
   <url>
+    <loc>https://earth-observation-network.github.io/EON2024/templates/journals-examples-default.html</loc>
+    <lastmod>2024-06-12T21:51:06.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://earth-observation-network.github.io/EON2024/templates/allformats-odt-docx-examples.html</loc>
+    <lastmod>2024-06-12T21:51:05.403Z</lastmod>
+  </url>
+  <url>
     <loc>https://earth-observation-network.github.io/EON2024/modules/slidelist.html</loc>
     <lastmod>2024-06-12T19:56:53.574Z</lastmod>
   </url>
   <url>
-    <loc>https://earth-observation-network.github.io/EON2024/templates/allformats-odt-docx-examples.html</loc>
-    <lastmod>2024-06-12T20:45:49.801Z</lastmod>
-  </url>
-  <url>
-    <loc>https://earth-observation-network.github.io/EON2024/templates/journals-examples-default.html</loc>
-    <lastmod>2024-06-12T20:45:51.337Z</lastmod>
+    <loc>https://earth-observation-network.github.io/EON2024/templates/slides-template.html</loc>
+    <lastmod>2024-06-12T19:56:53.754Z</lastmod>
   </url>
 </urlset>

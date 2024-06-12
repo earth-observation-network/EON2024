@@ -1,7 +1,6 @@
 ---
 title: "Frequently asked Questions"
 editor: visual
-
 ---
 
 ## Make sense topic
@@ -19,5 +18,3 @@ This is a meaningful answer to a senseless question
 
 This is a even **more** meaningful answer to a senseless question
 :::
-
-
