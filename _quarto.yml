@@ -32,7 +32,7 @@ website:
     contents:
       - section: "Welcome"
         contents:
-          - index.md
+          - index.qmd
       - text: "---"
       - section: "Training Data"
         contents: 
