@@ -22,9 +22,6 @@ jobs:
           extra-packages: |
             any::rmarkdown
             any::knitr
-          needs: |
-            website
-            coverage
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
