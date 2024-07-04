@@ -1,0 +1,72 @@
+project: 
+  type: website
+  output-dir: docs/
+  render:
+  - "*.qmd"
+  
+website:
+  open-graph: true
+  page-navigation: true  
+  title: "EON Summer School 2024"
+  site-url: https://earth-observation-network.github.io/EON2024
+  repo-url: https://github.com/earth-observation-network/EON2024
+  repo-actions: [edit, issue]
+  search: 
+    location: navbar
+    type: textbox
+  page-footer: "Earth Observation Network Harz Summerschool (2024)" 
+  twitter-card:
+    creator: "@gisma"
+  # comments:
+  #   utterances:
+  #     repo: yourgithubname/yourreponame
+  navbar:
+    logo: /images/logooil.jpg
+
+
+  sidebar:
+    # logo: /images/logo.jpg
+    pinned: true
+    align: center
+    style: "docked"
+    collapse-level: 1
+    contents:
+      - section: "Welcome"
+        contents:
+          - index.qmd
+      - text: "---"
+      - section: "Training Data"
+        contents: 
+          - tdv_session/01_TrainingDataCollection.qmd
+          - tdv_session/02_ValidationDataCollection.qmd
+      - text: "---"
+      - section: "Microclimate Data Retrieval & Spatial Data Interpolation"
+        contents:
+          - mc_session/mc1.qmd
+          - mc_session/mc3.qmd
+          - mc_session/mc4.qmd
+      - text: "---"
+      - section: "Machine Learning"
+        contents:
+          - ml_session/ML_AOA.qmd
+          # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-introduction/
+          #   text: Basic Readings        
+          # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-fieldwork/
+          #   text: uav/Flight Planning
+      - text: "---"
+##format: dokuwiki
+format:
+  html:
+    theme:
+      light: lumen
+      dark: [lumen, css/theme-dark.scss]
+    code-background: true
+    code-copy: true
+    css: css/styles.css
+    toc: true
+    link-external-icon: true
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/www\.quarto\.org\/custom'
+# filters:
+#   - include-files.lua
+#   - quarto

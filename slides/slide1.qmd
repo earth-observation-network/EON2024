@@ -1,0 +1,222 @@
+---
+title: "Slides and extensions"
+subtitle: "basically shows the 3 extensions samples"
+author: "gisma team"
+title-slide-attributes:
+  data-background-image: slide1/preview-image-mof.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+
+format: 
+  revealjs:
+    theme: default
+    slide-number: true
+    footer: <gisma 2023>
+    header: This is the header extension
+    header-logo: slide1/logooil.jpg
+    spotlight:
+      useAsPointer: true
+      size: 5
+
+filters:
+  - roughnotation
+  - reveal-header
+
+revealjs-plugins:
+  - spotlight
+---
+
+The title slide is configured by the following part of the `yaml` header:
+
+``` {.yaml code-line-numbers="2-7" }
+---
+title: "Slides and extensions"
+subtitle: "basically shows the 3 extensions samples"
+title-slide-attributes:
+  data-background-image: slide1/mof.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+format: 
+  revealjs:
+ [...]
+---
+```
+
+## Header (1\|2)
+
+The support of header and footer logic is provided by the plugin `reveal-header`. it is activated by:
+
+``` yaml
+filters:
+  - reveal-header
+```
+
+## Header (2\|2)
+
+In this example you will find a basic header and footer text, pagination and a logo in the upper left corner .
+
+``` {.yaml code-line-numbers="10-13"}
+---
+title: "Slides and extensions"
+subtitle: "basically shows the 3 extensions samples"
+title-slide-attributes:
+  data-background-image: slide1/mof.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+format: 
+  revealjs:
+    slide-number: true
+    footer: <gisma 2023>
+    header: This is the header extension
+    header-logo: slide1/logooil.jpg
+[...]
+---
+```
+
+## Spotlight (1\|2)
+
+The support of a pointer or similar pointing features is provided by the plugin `spotlight`. it is activated by:
+
+``` yaml
+revealjs-plugins:
+  - spotlight
+```
+
+## Spotlight (2\|2)
+
+Currently the spotlight is set to a red dot pointer. Just press the left mouse button and use it. It is defined in the header:
+
+``` {.yaml code-line-numbers="9-11"}
+---
+[...]
+format: 
+  revealjs:
+    slide-number: true
+    footer: <gisma 2023>
+    header: This is the header extension
+    header-logo: slide1/logooil.jpg
+    spotlight:
+      useAsPointer: true
+      size: 5
+
+filters:
+  - roughnotation
+  - reveal-header
+revealjs-plugins:
+  - spotlight
+---
+```
+
+## Highlighting concept
+
+The support of complex highlighting etc. is provided by the plugin `roughnotation`. it is activated by:
+
+``` yaml
+filters:
+  - roughnotation
+```
+
+To activate the highlighting interactively press the **`r`** key. It will start any notation animations:
+
+I will be [highlighted]{.rn}, and so will [these words right here]{.rn}
+
+## Options
+
+There are many types of options we can use (Press **`r`** to show)
+
+-   [type]{.rn rn-type="circle"}
+-   [animate]{.rn rn-animate="false"}
+-   [animationDuration]{.rn rn-animationDuration="20000"}
+-   [color]{.rn rn-color="blue"}
+-   [strokeWidth]{.rn rn-strokeWidth="3"}
+-   [multiline multiline multiline multiline multiline multiline multiline multiline multiline multiline]{.rn rn-multiline="true"}
+-   [iterations]{.rn rn-iterations="1"}
+-   [rtl]{.rn rn-rtl="false"}
+
+## Options
+
+(Press **`r`** to show)
+
+The options are applied by adding arguments like so `{.rn rn-color=orange rn-type=circle}`
+
+So to add a [orange circle]{.rn rn-color="orange" rn-type="circle"} or [turn off animations]{.rn rn-type="underline" rn-color="red" rn-animate="false"} by adding `rn-animate=false`
+
+Note that the arguments are all prefixed with `rn-`, are [not]{.rn} comma-separated, logical values are written as `true` or `false` and that strings do not have to be in quotes
+
+## Options - types
+
+(Press **`r`** to show)
+
+::: columns
+::: {.column width="30%"}
+[Underline]{.rn rn-type="underline" rn-color="red"}
+
+[Box]{.rn rn-type="box" rn-color="purple"}
+
+[Circle]{.rn rn-type="circle" rn-color="blue"}
+
+[Highlight]{.rn rn-type="highlight"}
+
+[Strike-Through]{.rn rn-type="strike-through" rn-color="green"}
+
+[Crossed-off]{.rn rn-type="crossed-off" rn-color="orange"}
+:::
+
+::: {.column width="50%"}
+Many types to choose from!
+
+Hyphenated options can be used like so `rn-type=strike-through`
+:::
+:::
+
+## Options - Multiline
+
+(Press **`r`** to show)
+
+The options `rn-multiline=true` can be added to make a highligher work across multiple lines.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Sed accumsan nisi hendrerit augue molestie tempus. Phasellus purus quam, aliquet nec commodo quis, pharetra ut orci. Donec laoreet ligula nisl, placerat molestie mauris luctus id.]{.rn rn-multiline="true"} Fusce dapibus non libero nec lobortis.
+
+## All about Time
+
+(Press **`r`** to show)
+
+Unless otherwise specified, all annotations will occur at the same time. Set the `rn-index` to specify order
+
+[No `rn-index`]{.rn rn-color="red" rn-type="box"}
+
+[`rn-index` set to 1]{.rn rn-color="orange" rn-type="box" rn-index="1"}
+
+[`rn-index` set to 2]{.rn rn-color="yellow" rn-type="box" rn-index="2"}
+
+[`rn-index` set to 3]{.rn rn-color="green" rn-type="box" rn-index="3"}
+
+[`rn-index` set to 4]{.rn rn-color="blue" rn-type="box" rn-index="4"}
+
+## Fenced divs
+
+You can also use fenced divs if you want to apply the changes to larger sections of of the slide
+
+``` md
+::: {.rn rn-type=box rn-color=red}
+Here is some text
+
+And there is more here
+:::
+```
+
+::: {.rn rn-type="box" rn-color="red"}
+Here is some text
+
+And there is more here
+:::
+
+## Known issues
+
+doesn't show correctly in RStudio IDE
+
+Depending on Browser and setting use the CTRL +/- zoom to place the highlights at the correct places
+
+## Basic Reference
+
+Find more informations at [Quarto RevealJS Documentation](https://quarto.org/docs/presentations/revealjs/)

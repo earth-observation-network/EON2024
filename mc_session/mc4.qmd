@@ -1,0 +1,28 @@
+---
+title: "Data Sources"
+subtitle: "Tutorial: EON Summer School 2024"
+author: Chris Reudenbach, Philipps University Marburg (PUM)
+date: "2023-08-30"
+image: ../images/mc4.png
+
+about:
+  id: image-heading
+  template: solana
+  image-shape: rounded
+  image-width: 25em
+  links:
+    - icon: shop-window
+      text: Station inside the dead Fir plot (Ecowitt Dashboard Login required)
+      href: https://www.ecowitt.net/home/index?id=149300
+    - icon: shop-window
+      text: Station inside the clear cut (Ecowitt Dashboard Login required)
+      href: https://www.ecowitt.net/home/index?id=20166
+    - icon: shop-window
+      text: Position Data of the climate stations
+      href: https://github.com/HannaMeyer/EON2023/blob/main/mc_session/data/stations_prelim.zip
+
+---
+::: {#image-heading}
+Data logger and measurement data
+:::
+

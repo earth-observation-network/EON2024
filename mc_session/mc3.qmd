@@ -1,0 +1,494 @@
+---
+title: "Spatial Interpolation"
+subtitle: "Tutorial: EON Summer School 2024"
+author: Chris Reudenbach, Philipps University Marburg (PUM)
+date: "2023-08-30"
+image: ../images/mc3.png
+about:
+  id: image-heading
+  template: solana
+  image-shape: round
+  image-width: 10em
+
+---
+
+::: {#image-heading}
+The use of quantitative methods, especially statistical methods, is of
+considerable importance for describing and explaining spatial patterns
+(e.g. landscape ecology). The central concept on which these methods are
+based is that of proximity, or location in relation to each other.
+:::
+
+## Distance and data representation
+
+Let's take a closer look at proximity, which is mentioned frequently.
+What exactly is it? How can proximity/neighborliness be expressed in
+such a way that the space becomes meaningful?
+
+In general, spatial relationships are described in terms of
+neighborhoods (positional) and distances (metric). In spatial analysis
+or prediction, however, it is important to be able to name the spatial
+**influence**, i.e. the evaluation or weighting of this relationship,
+either qualitatively or quantitatively. Tobler did this for a specific
+objective by stating that "near" is more important than "far". But what
+about in other cases? The challenge is that spatial influence can only
+be measured directly in exceptional cases. There are many ways to
+estimate it, however.
+
+### Neighborhood
+
+Neighborhood is perhaps the most important concept. Higher dimensional
+geo-objects can be considered neighboring if they *touch* each other,
+e.g. neighboring countries. For zero-dimensional objects (points), the
+most common approach is to use distance in combination with a number of
+points to determine neighborhood.
+
+### Distance
+
+Proximity or neighborhood analyses are often concerned with areas of
+influence or catchment areas, i.e. spatial patterns of effects or
+processes.
+
+This section discusses some methods for calculating distances between
+spatial objects. Because of the different ways of discretizing space, we
+must make the -- already familiar -- distinction between vector and
+raster data models.
+
+Initially, it is often useful to work without spatially restrictive
+conditions in a first analysis, e.g. when this information is missing.
+The term "proximity" inherently implies a certain imprecision.
+Qualitative terms that can be used for this are: "near", "far" or "in
+the neighborhood of". Representation and data-driven analysis require
+these terms to be objectified and operationalized. So, this metric must
+be based on a distance concept, e.g. Euclidean distance or travel times.
+In a second interpretative step, we must decide which units define this
+type of proximity. In terms of the objective of a question, there are
+only suitable and less-suitable measures; there is no correct or
+incorrect. Therefore, it is critical to define a meaningful neighborhood
+relationship for the objects under investigation.
+
+## Filling spatial gaps
+
+Now that we have learned the basic concepts of distance, neighborhood
+and filling spatial gaps, let's take a look at interpolating or
+predicting values in space.
+
+For many decades, deterministic interpolation techniques ([inverse
+distance
+weighting](https://en.wikipedia.org/wiki/Inverse_distance_weighting),
+[nearest
+neighbor](https://en.wikipedia.org/wiki/Nearest_neighbor_search),
+[kriging](https://en.wikipedia.org/wiki/Kriging)) have been the most
+popular spatial interpolation techniques. External drift kriging and
+regression kriging, in particular, are fundamental techniques that use
+[spatial
+autocorrelation](https://en.wikipedia.org/wiki/Spatial_analysis#Spatial_auto-correlation)
+and covariate information, i.e. sophisticated regression statistics.
+
+Machine learning algorithms like random forest have become very popular
+for spatial environmental prediction. One major reason for this is that
+they are can take into account non-linear and complex relationships,
+i.e. compensate for certain disadvantages that are present in the usual
+regression methods.
+
+## Proximity concepts
+
+### Voronoi polygons -- dividing space geometrically
+
+[Voronoi polygons](https://en.wikipedia.org/wiki/Voronoi_diagram) (aka
+Thiessen polygons) are an elementary method for geometrically
+determining *proximity* or *neighborhoods*. Voronoi polygons (see figure
+below) divide an area into regions that are closest to a given point in
+a set of irregularly distributed points. In two dimensions, a Voronoi
+polygon encompasses an area around a point, such that every spatial
+point within the Voronoi polygon is closer to this point than to any
+other point in the set. Such constructs can also be formed in higher
+dimensions, giving rise to Voronoi polyhedra.
+
+```{=html}
+<iframe width="780" height="500" src="https://geomoer.github.io/geoAI//assets/images/unit01/suisse1.html" title="VVoronoi"></frame>
+```
+```{=html}
+<iframe width="780" height="500" src="https://geomoer.github.io/geoAI//assets/images/unit01/suisse6.html" title="Interpol"></iframe>
+```
+<figure>
+
+<figcaption>The blue dots are a typical example of irregularly
+distributed points in space -- in this case, rain gauges in Switzerland.
+The overlaid polygons are the corresponding Voronoi segments that define
+the corresponding closest geometrical areas (gisma 2021)"</figcaption>
+
+</figure>
+
+Since Voronoi polygons correspond to an organizational principle
+frequently observed in both nature (e.g. plant cells) and in the spatial
+sciences (e.g. [central
+places](https://en.wikipedia.org/wiki/Central_place_theory) , according
+to Christaller), there are manifold possible applications. Two things
+must be assumed, however: First, that nothing else is known about the
+space between the sampled locations and, second, that the boundary line
+between two samples is **incomplete idea**.
+
+Voronoi polygons can also be used to delineate catchment areas of shops,
+service facilities or wells, like in the example of the Soho cholera
+outbreak. Please note that within a polygon, one of the spatial features
+is isomorphic, i.e. the spatial features are identical.
+
+But what if we know more about the spatial relationships of the
+features? Let's have a look at some crucial concepts.
+
+### Spatial interpolation of data
+
+*Spatially interpolating* data points provides us with a modeled
+quasi-continuous estimation of features under the corresponding
+assumptions. But what is spatial interpolation? Essentially, this means
+using known values to calculate neighboring values that are unknown.
+Most of these techniques are among the most complex methods of spatial
+analysis, so we will deliberately limit ourselves here to a basic
+overview of the methods. Some of the best-known and common interpolation
+methods found in spatial sciences are *nearest neighbor* *inverse
+distance*, *spline interpolations*, *kriging*, and *regression methods*.
+
+### Continously filling the gaps by interpolation
+
+To get started, take a look at the following figure, which shows six
+different interpolation methods to derive the spatial distribution of
+precipitation in Switzerland (in addition to the overlaid Voronoi
+tessellation).
+
+```{=html}
+<iframe width="780" height="500" src="https://geomoer.github.io/geoAI//assets/images/unit01/suisse6.html" title="Interpol"></iframe>
+```
+<figure>
+
+<figcaption>The blue dots are a typical example of irregularly
+distributed points in space -- in this case, rain gauges in Switzerland.
+The size of each dot corresponds to the amount of precipitation in mm.
+The overlaid polygons are the corresponding Voronoi segments that define
+the corresponding closest geometrical areas (gisma 2021)" top left:
+Nearest neighbor interpolation based on 3-5 nearest neighbors, top
+right: Inverse Distance weighting (IDW) interpolation method middle
+left: AutoKriging with no additional parameters, middle right: Thin
+plate spline regression interpolation method bottom left: Triangular
+irregular net (TIN) surface interpolation, bottom right: additive model
+(GAM) interpolation</figcaption>
+
+</figure>
+
+In the example of precipitation in Switzerland, the positions of the
+weather stations are fixed and cannot be freely chosen.
+
+When choosing an appropriate interpolation method, we need to pay
+attention to several properties of the samples (distribution and
+properties of the measurement points):
+
+-   **Representativeness of measurement points:** The sample should
+    represent the phenomenon being analyzed in all of its
+    manifestations.
+-   **Homogeneity of measurement points:** The spatial interdependence
+    of the data is a very important basic requirement for further
+    meaningful analysis.
+-   **Spatial distribution of measurement points:** The spatial
+    distribution is of great importance. It can be completely random,
+    regular or clustered.
+-   **Number of measurement points:** The number of measurement points
+    depends on the phenomenon and the area. In most cases, the choice of
+    sample size is subject to practical limitations.
+
+What makes things even more complex is that these four factors --
+representativeness, homogeneity, spatial distribution and size -- are
+all interrelated. For example, a sample size of 5 measuring stations for
+estimating precipitation for all of Switzerland is hardly meaningful and
+therefore not representative. Equally unrepresentative would be
+selecting every measuring station in German-speaking Switzerland to
+estimate precipitation for the entire country. In this case, the number
+alone might be sufficient, but the spatial distribution would not be. If
+we select every station at an altitude below 750 m asl, the sample could
+be correct in terms of both size and spatial distribution, but the
+phenomenon is not homogeneously represented in the sample. An estimate
+based on this sample would be clearly distorted, especially in areas
+above 750 m asl. In practice, virtually every natural
+spatially-continuous phenomenon is governed by stochastic fluctuations,
+so, mathematically speaking, it can only be described in approximate
+terms.
+
+### Machine learning
+
+Machine learning (ML) methods such as random forest can also produce
+spatial and temporal predictions (i.e. produce maps from point
+observations). These methods are particularly robust because they take
+spatial autocorrelation into account, which can improve predictions or
+interpolations by adding geographic distances. This ultimately leads to
+better maps with much more complex relationships and dependencies.
+
+In the simplest case, the results are comparable to the well-known
+model-based geostatistics. The advantage of ML methods over model-based
+geostatistics, however, is that they make fewer assumptions, can take
+non-linearities into account and are easier to automate.
+
+![](https://geomoer.github.io/geoAI/assets/images/unit01/ML_interpol.png)
+
+<figure>
+
+<figcaption>The original dataset (top left) is a terrain model reduced
+to 8 meters with 48384 single pixels. For interpolation, 1448 points
+were randomly drawn and interpolated with conventional kriging (top
+right), support vector machines (SVM) (middle left), neural networks
+(middle right), and two variants of random forest (bottom row). In each
+method, only the distance of the drawn points is used as a dependency.\
+</figcaption>
+
+</figure>
+
+Each interpolation method was applied using the "default" settings.
+Tuning could possibly lead to significant changes in all of them.
+Fascinatingly, the error measures correlate to the visual results:
+Kriging and the neural network show the best performance, followed by
+the random forest models and the support-vector machine.
+
+| model                    | total_error | mean_error | sd_error |
+|:-------------------------|:------------|:-----------|:---------|
+| Kriging                  | 15797773.0  | 54.2       | 67.9     |
+| Neural Network           | 19772241.0  | 67.8       | 80.5     |
+| Random Forest            | 20540628.1  | 70.4       | 82.5     |
+| Normalized Random Forest | 20597969.8  | 70.6       | 82.7     |
+| Support Vector Machine   | 21152987.7  | 72.5       | 68.3     |
+
+### Additional references
+
+Get the Most Out of AI, Machine Learning, and Deep Learning [Part
+1](https://www.youtube.com/watch?v=KiKjforteXs) (10:52) and [Part
+2](https://www.youtube.com/watch?v=Ys33AhNDwC4) (13:18)
+
+[Why You Should NOT Learn Machine
+Learning!](https://youtu.be/reY50t2hbuM) (6:17)
+
+[GeoAI: Machine Learning meets ArcGIS](https://youtu.be/aKq50YM8a8w)
+(8:50)
+
+## Hands on our data
+
+### Setup the environment
+
+Please download the data from the repository or take the USB-stick
+
+```{r setup, message=FALSE, warning=FALSE}
+#------------------------------------------------------------------------------
+# Author: creuden@gmail.com
+# Description:  interpolates the air temp
+# Copyright:GPL (>= 3)  Date: 2023-08-28 
+#------------------------------------------------------------------------------
+
+# 0 ---- project setup ----
+
+# load packages (if not installed please install via install.packages())
+library("raster")
+library("terra")
+library("sp")
+library("sf")
+library("dplyr")
+library("lwgeom")
+library("readxl")
+library("highfrequency")
+library("tidyverse")
+library("rprojroot")
+library("tibble")
+library("xts")
+library("data.table")
+library("mapview")
+library(stars)
+library(gstat)
+
+# create a string containing the current working directory
+wd=paste0(find_rstudio_root_file(),"/mc_session/data/")
+
+# define time period to aggregate temp dat
+time_period = 3
+
+# multiplication factor for blowing up the Copernicus DEM
+blow_fac = 15
+
+# reference system as proj4 string for old SP package related stuff
+crs = raster::crs("+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs")
+sfcrs <- st_crs("EPSG:32633")
+
+# Copernicus DEM (https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1)
+fnDTM = paste0(wd,"copernicus_DEM.tif")  
+
+# Weather Data adapt if you download a new file 
+# https://www.ecowitt.net/home/index?id=20166)
+# https://www.ecowitt.net/home/index?id=149300
+fn_dataFC29 = paste0(wd,"all_GW1000A-WIFIFC29.xlsx")
+fn_dataDB2F =paste0(wd,"all_GW1000A-WIFIDB2F.xlsx")
+
+# station data as derived by the field group
+fn_pos_data= paste0(wd,"stations_prelim.shp")
+
+# arbitrary plot borders just digitized for getting a limiting border of the plot area
+fn_area =paste0(wd,"plot.shp")
+
+# rds file for saving the cleaned up weather data
+cleandata = paste0(wd,"climdata.RDS")
+
+# 1 ---- read data ----
+# read_sf("data/de_nuts1.gpkg") |> st_transform(crs) -> de
+# read DEM data
+DTM = terra::rast(fnDTM) # DTM.
+# increase resolution by 15
+DTM=disagg(DTM, fact=c(blow_fac, blow_fac)) 
+#rename layer to altitude
+names(DTM)="altitude"
+r=DTM*0
+
+# read station position data
+ pos=st_read(fn_pos_data)
+ # read station position data
+area=st_read(fn_area)
+# reproject the dataset to the project crs
+area=st_transform(area,crs)
+# read temperature data we need to skip row 1 due to excel format
+clim_dataFC29 = as_tibble(read_excel(fn_dataFC29, skip = 1)) 
+clim_dataDB2F = as_tibble(read_excel(fn_dataDB2F, skip = 1))
+
+```
+
+### Cleaning data
+
+We need to do an ugly cleaning job. This is basically the most
+cumbersome part of dealing with data analysis.
+
+```{r tempdata, message=FALSE, warning=FALSE}
+# select the required cols
+tempFC29 = clim_dataFC29 %>% dplyr::select(c(1,2,32,36,40,44,48))
+tempDB2F = clim_dataDB2F %>% dplyr::select(c(1,25,29,33,37,41,45,49,53))
+# rename header according to the pos file names and create a merge field time
+names(tempDB2F) = c("time","ch1_r","ch2_r","ch3_r","ch4_r","ch5_r","ch6_r","ch7_r","ch8_r")
+names(tempFC29) = c("time","base","ch1","ch2","ch3","ch4","ch5")
+#merge files
+temp=merge(tempFC29,tempDB2F)
+# convert datum which is a string to date format
+temp$time=as.POSIXct(temp$time)
+# aggregate timeslots according to the value in time_period
+temp3h = aggregateTS(as.xts(temp), alignBy = "hours",dropna = T,alignPeriod = time_period)
+# add the datum colum (which is now a pointer of the timeseries) as first col in the dataset
+temp_fin=as_tibble(temp3h) %>% add_column(time = index(temp3h), .before = 1)
+# transpose and combine the table
+temp_fin=as_tibble(cbind(nms = names(temp_fin), t(temp_fin)))
+# delete first row 
+names(temp_fin) = temp_fin[1,]
+temp_fin=temp_fin[-1,]
+# replace names specially time by stationid
+names(temp_fin)[names(temp_fin) == 'time'] = 'stationid'
+# extract altitudes for positions
+pos$altitude= exactextractr::exact_extract(DTM,st_buffer(pos,1),"mean")
+# merge positions and values via id
+m=merge(pos,temp_fin)
+# make the var name working for gstat by replacing all patterns
+n= gsub(x = names(m),pattern = "-",replacement = "")
+n= gsub(x = n,pattern = " ",replacement = "")
+n= gsub(x = n,pattern = ":",replacement = "")
+n= gsub(x = n,pattern = "2023",replacement = "A2023")
+# and rename couse this as new names
+names(m)=n
+m= st_transform(m,sfcrs)
+
+saveRDS(m,cleandata)
+```
+
+### Preparing and converting spatial basis data sets
+
+After the basic cleaning is finished we prepare some specific datasets according to the technical needs. 
+
+```{r , helperdata , message=FALSE, warning=FALSE}
+# grep the varnames for an interpolation loop
+vars=grep(glob2rx("A2023*"), n, value = TRUE)
+vars
+# convert final sf vector to terra vector
+temperature_vect = vect(m)
+temperature_vect 
+# create table containing x, y, value (A20230829220000) to interpolate this values in space
+xyz=cbind(geom(temperature_vect)[,3],geom(temperature_vect)[,4],as.numeric(temperature_vect$A20230829220000))
+# convert to data frame and name header
+xyz=data.frame(xyz)
+names(xyz) =c("x","y","temp")
+xyz
+
+# the same just for x,y
+xy=cbind(geom(temperature_vect)[,3],geom(temperature_vect)[,4])
+#the same just for z
+z=as.numeric(temperature_vect$A20230829220000)
+```
+
+# Basic Interpolations
+Now we can start with the interpolation or any other analysis which deals with respect to the cleaned Weather data
+
+```{r , nn_IDW , message=FALSE, warning=FALSE}
+# -terra package
+# Voronoi Segmentation
+p = vect(xyz, geom=c("x", "y")) 
+voronoi = voronoi(p)
+
+# Nearest neighbor interpolation
+interpNN = interpNear(r, as.matrix(xyz),radius=100)
+
+# Inverse Distance interpolation
+interpIDW = interpIDW(r, as.matrix(xyz), radius=300, power=2, smooth=1, maxPoints=3)
+# ploting
+plot(interpIDW)
+
+# -gstat package
+# Inverse Distance interpolation
+idw_gstat <- gstat::idw(A20230829220000~1, m, st_as_stars(r),nmin = 3, maxdist = 100, idp = 2.0)
+# ploting
+plot(idw_gstat)
+
+# kriging
+vm.auto = automap::autofitVariogram(formula = as.formula(paste("altitude", "~ 1")),
+                                      input_data = m)
+k <- krige(A20230829220000 ~ altitude, m, st_as_stars(DTM),
+                           vm.auto$var_model)
+plot(k)
+
+crs(voronoi)=crs
+v=sf::st_as_sf(voronoi)
+# map it
+mapview(raster(interpNN) ,col=rainbow(25)) + 
+ mapview( raster(interpIDW),col=rainbow(25)) + 
+  mapview(k,col=rainbow(25))+ v
+   
+```
+
+### Kriging with the relation to the DGM
+
+```{r krige, message=FALSE, warning=FALSE}
+
+## universal kriging with gstat 
+# we use the terrain model for prediction
+
+
+# for all time slots
+for (var in vars[7:8]){
+  # autofit variogramm for kriging 
+  vm.auto = automap::autofitVariogram(formula = as.formula(paste("altitude", "~ 1")),
+                                      input_data = m)
+  plot(vm.auto)
+  
+  #   # kriging   
+  print(paste0("kriging ", var))
+  k <- krige( as.formula(paste(var, " ~ altitude")), m, st_as_stars(DTM),
+              vm.auto$var_model)
+  plot(k)
+  # save to geotiff
+  stars::write_stars(k,paste0(wd,var,"v_interpol.tif"),overwrite=TRUE)
+  
+}
+
+
+```
+
+## Further Hands on examples
+
+[The Forgenius Pinus Pinaster
+Project](https://gitlab.uni-marburg.de/reudenba/forgenius-pp/-/tree/main)
+provides an fully integrated GIS source code and field data dealing with
+prediction classificaten of UAV and station realted data.

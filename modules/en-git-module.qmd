@@ -1,0 +1,14 @@
+---
+title: "Git, GitHub & Rstudio [EN]"
+
+---
+
+![](../images/github-Rstudio.jpg){width="75%"}
+
+## Module Overview
+
+This module is about the version control system Git, the cloud services GitHub/GitLab and using them with RStudio as an IDE.
+
+### Content
+
+<iframe width="120%" height="4750px" src="http://137.248.191.201:3838/git/"   scrolling="no" frameborder="0"> </iframe>

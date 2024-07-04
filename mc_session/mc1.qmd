@@ -1,0 +1,172 @@
+---
+title: "Microclimate Sensors & Power supply Units "
+subtitle: "Tutorial: EON Summer School 2024"
+author: Chris Reudenbach, Philipps University Marburg (PUM)
+date: "2023-08-30"
+#comments: false
+
+image: ../images/froggit_1.jpg
+about:
+  id: image-heading
+  template: solana
+  image-shape: round
+  image-width: 10em
+  links:
+    - icon: shop-window
+      text: froggit shop [DE]
+      href: https://www.froggit.de/?cat=c40_Raumklima-und-Luftqualitaet---IP-Wettersysteme-dp-serie.html
+    - icon: shop-window
+      text: ecowitt shop [US]
+      href: https://shop.ecowitt.com/collections/wifi-sensor
+    - icon: building-gear
+      text: Fine Offset 
+      href: https://www.foshk.com/      
+---
+
+::: {#image-heading}
+The sensors from `Fine Offset` are re-branded and partly modified by the resellers. This article deals with sensors from the german re-seller `froggit` and the US re-seller `ecowitt`. More precise the [DP-/GW SmartHubs](https://www.foshk.com/Wifi_Weather_Station/GW1100.html) WiFi Gateway with temperature, humidity & Pressure which is developed by fine offset. The unique selling point of the LoRa-Wifi gateway is the extraordinarily extensive possibility of connecting radio-bound sensors.
+:::
+
+# Features
+
+Currently, depending on the gateway, a maximum of 8 sensors of the following types can be connected at the same time:
+
+-   [DP150/WN51](https://www.froggit.de/media/products/DP150_BDA_EN.pdf) soil temperature sensors,
+-   [DP50/WH31](https://www.froggit.de/media/products/DP50_BDA(DE).pdf) multi channel temperature and humidity sensors
+-   [WN34](https://osswww.ecowitt.net/uploads/20220803/WN34S%20WN34L%20Manual.pdf) wire probe thermometer
+-   [DP10/WN35](https://www.froggit.de/media/products/DP10_BDA_EN.pdf) leaf wetness sensors
+-   [DP100](https://www.froggit.de/media/products/DP100_BDA(DE).pdf) soil moisture sensors;
+
+a maximum of 4:
+
+-   [DP200/WH41/WH43](https://www.froggit.de/media/products/DP200_BDA(DE)_1.pdf) PM2.5/PM10 sensors
+-   [WH45](https://osswww.ecowitt.net/uploads/20220803/WH55%20Manual.pdf) Water leak sensors
+
+a maximum of 2:
+
+-   [DP250/WH45](https://www.froggit.de/product_info.php?info=p483_dp250-5-in-1-co2-pm2-5-pm10-temperatur-luftfeuchte-innenraum-luftqualitaets-funksensor.html) CO2 / PM2.5 / PM10 / temperatur / moisture sensor
+-   [DP60/WH57](https://www.froggit.de/media/products/DP60-Manual_EN_.pdf) Lightning sensor
+
+For the basic weather parameters as rain, wind vector insolation temperature and humidity one of the compatible outdoor basis units as the [DP1100](https://www.froggit.de/media/products/DP1100_BDA_DE_.pdf) or [WH3000](https://www.froggit.de/media/products/WH3000_BDA_Ausseneinheit_DE_.pdf)
+
+
+## Calibration Concept
+
+The low budget sensors are usually lacking of a stable measurement quality. To obtain reliable micro climate data a two step calibration process is suggested.
+
+1.  The measurements of all sensors (preferably in a climate chamber) will be statistically analysed to identify sensor which produce systematic and significant outliers.
+2.  The sensors are calibrated against an operational running high price reference station in the field.
+
+::: {.callout-caution collapse="true" appearance="simple" icon="false"}
+## Future Calibration Plans
+
+For the future a machine learning approach including the radiation, azimuth, temperature and humidity as predictors for the calibrated temperature as the response variable will be used as an rolling calibration tool.
+:::
+
+
+
+# Power supply Unit
+
+The power supply box is designed to safely supply a range of demanding energy consumers with power. It consists of industry standard components.
+
+
+## Switching scheme
+
+The battery box has a very simple design. Besides the cabling, it contains a solar charge regulator, a fuse panel for the protection of the consumers and an AGM 120aH battery.
+
+![](../images/battery_box/switching_scheme.png){width="75%"}
+## Components
+* Sealable, durable Wham Bam Heavy Duty Box, 62 L, 59,5 x 40 x 37 cm, PP Recycling Plastic [Wham Bam Box](https://www.whatmoreuk.com/product/wham-bam-62l-h-duty-box-lid-black-recycled/). The "Wham Bam Box" made of recycled PP plastic was chosen for its extreme mechanical strength and almost complete biochemical resistance. The bad temperature spectrum for thermal stability is from approx. -10 -140 °C., it is acid and alkali resistant and waterproof. By additionally equipping the box with a fire protection mat, the almost airtight closure offers a virtually complete reduction of fire load inside and outside the box.
+* 12V deep-cycle battery [BSA Audio Solar Technologie 120 Ah 12V C100](https://www.batteriespezialist.de/Solarbatterien/Solar-120Ah-Versorgungsbatterie::422.html)
+* 3 x [Neutrik powerCON TRUE1 NAC3FPX](https://www.neutrik.com/en/product/nac3fpx) outlets and [Neutrik SCNAC-FPX](https://www.neutrik.com/en/product/scnac-fpx) sealing cover.
+* [Fuse Box](https://www.ebay.de/i/321606050013)  for car fuses up to max. 15A per fuse, maximum 30A per fuse box, With sealed cover, splash-proof, Material: PA6.6, 12 connections on the side
+  * Nominal voltage: 32 V/DC
+  * Nominal current (per output): 15 A
+   * Temperature range: -20 - +85 °C
+   * Connections: Flat plug 8x 6,3 x 0,8 mm lateral
+* Solar charge controller, 20A (ALLPOWERS, available from various brands) [Specification ALLPOWERS](http://iallpowers.com/index.php?c=product&id=372)
+
+
+## Wiring
+
+* Battery to solar charger:
+  * Pole terminal connectors (+ and -)
+  * 6 mm<sup>2</sup> cables (red and black)
+  * 2 x Crimp cable shoes
+* Solar panel to solar charger
+  * MC4 photovoltaic connectors (+ and -) [Weidemüller](https://www.voelkner.de/products/687644/Weidmueller-Photovoltaik-Steckverbinder-PV-Stick-PV-STICK-SET-Schwarz-Inhalt-1St..html)
+  * 6 mm<sup>2</sup> cables (red and black)
+  * 2x Crimp cable shoes
+* Solar charger fuse box outlets
+  * 6 x 1,5 mm<sup>2</sup> cables, red
+  * 6 x 1/4'' FASTON terminals [Fuse Box](https://www.ebay.de/i/321606050013)
+  * 3 x 1,5 mm<sup>2</sup> cables, black
+  * 2 x Crimp cable shoes (holding 3 wires)
+  * 6 x 6,35mm / 1/4'' crimp [FASTON terminals](https://en.wikipedia.org/wiki/FASTON_terminal)
+
+
+Please note the following points:
+* Silicone cables, solar cables, plugs and fuse box fulfills industry standards. All cable lugs are crimped and checked.
+* The cable lugs are not screwed to the charging cables with cable lugs but through the crimp connection with the end sleeve.
+* A main fuse (e.g. 40A automatic circuit breaker) must be installed 
+
+See also the figure below.
+
+
+
+
+![](../images/battery_box/solarcharer_wiring_fuse.jpg)
+
+ ![](../images/battery_box/battery_wiring.jpg)
+![](../images/battery_box/battery_fuse.jpg)    
+
+## Mounting
+* Outlets: 6x M3 screw (12mm), washers and nuts
+* Solar connectors: 2 x waterproof cable glands
+* Solar charger and fuse box:
+  * Wooden plate, glued to the box
+  * 4 screws for Solar Charge Controller
+  * 4 screws for fuse box
+Cable lugs and plugs are covered with self-vulcanizing tape and additionally insulated.
+
+
+
+
+## Station setup in the field
+
+For safe operation, the following points must be taken into account when setting up the box:
+
+1.) The box must be placed horizontally. Preferable at on a clearing to reduce impacts of falling branches or similar.
+![](../images/battery_box/0_raw_installation.jpg) 
+2.) One square meter around the box must be cleared of any vegetation and the A-horizon (depending on the slope, even more).
+
+![](../images/battery_box/01_cleaning area_from_organic_material.jpg) 
+3.) Around this area a further strip with a diameter of at least 1 meter must also be cleared of organic material, especially leaves. Dig up the A-horizon and exclude roots and organic stuff. Note that the wiring sections must also be cleared of combustible organic material.
+
+![](../images/battery_box/02_cleaning _box_plot_from_vegetation.jpg) 
+4.) Check cables and screws for proper seating and integrity.
+
+![](../images/battery_box/06_check_cables.jpg)
+
+
+5.) Check proper installation of the solar panel. Mount the panel on a simple wooden slat attached to the frame to avoid damage to the protective foil on the back. Such damage will destroy the panel.
+
+
+![](../images/battery_box/06_simple_rack.jpg)
+
+6.) Attach the solar connectors to the panel. This avoids ground contact and provides good weather protection. This can be done very easily by threading cable ties through the plugs and the junction box.
+{% include figure image_path="../images/battery_box/07_solar_plugs.jpg" alt="Attach the solar connectors to the panel."  %}
+![](../images/battery_box/07_solar_plugs.jpg)
+7.) Finally, the box should be secured against unauthorized or accidental opening. For this purpose there is a steel cable with a number lock, which is to be attached in the way it is placed there.
+
+![](../images/battery_box/08_safety_cable.jpg)
+
+## Final check
+
+1. All contacts and cables must be checked for proper seating and integrity. Especially the charging cables on the battery must be screwed tightly.
+1. All cables are to be laid without tension.
+1. The solar cables are to be laid separately to avoid a short circuit, so that an animal crossing etc. does not cause them to come into contact.
+1. The box is secured and tight.
+
+## Risk Assessment
+Here you find the preliminary [risk assesment](../images/battery_box/GFB-12V Anlagen_Natur40.pdf) for the installation and operation of 12 V solar power based energy supply units and measuring sensor systems.

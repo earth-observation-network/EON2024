@@ -1,1 +1,1 @@
-# EON2024
+# EON Summer School 2024
