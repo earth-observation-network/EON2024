@@ -42,14 +42,8 @@ This forest area was dominate by spruce trees which all died in the last years
 You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.php/s/yomQwefzLDwyTa6):
 
 
-# Datasets & Sensors
+# Sensors
 
-## Datasets
-
--   Airborne Laser Scanning (ALS) data ca. 2016
--   UAV RGB & multispectral data 2022 2023
--   DOP (20cm)
--   PlanetScope Scene (R,G,B,NIR) covering the entire Harz from 24.08.2022 
 
 
 
