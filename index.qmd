@@ -42,11 +42,6 @@ This forest area was dominate by spruce trees which all died in the last years
 You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.php/s/yomQwefzLDwyTa6):
 
 
-# Sensors
-
-
-
-
 ## Sensors & Equipment
 
 -   HAWK:
