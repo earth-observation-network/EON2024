@@ -1,0 +1,21 @@
+{
+  "hash": "eb32eccd15ff5d8160a3adaf529053a7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"YOUR  TITLE\"\nauthor: \"Peter PAN\"\ninstitute: \"YOUR ORGANIZATION\"\ndate: last-modified\ndate-format: \"DD MMM, YYYY\"\ntitle-slide-attributes: # title screen only\n  data-background-image: \"preview-image-mof.png\"\n  data-background-size: contain\n  data-background-opacity: \"0.7\"\nformat:\n  organization-revealjs:\n    theme: simple \n    echo: true\n    highlight-style: github\n    slide-number: true\n    width: 1600\n    height: 900\n    footer: \"[YOUR ORG](https://example.com/)\"\n    header: the incredible talk about making sense scales\n    header-logo: logo2.png\n    hide-from-titleSlide: text\n\n    spotlight:\n      useAsPointer: true\n      size: 5\n\nfilters:\n  - roughnotation\n  - reveal-header\n\nrevealjs-plugins:\n  - spotlight\n\n---\n\n::: {.cell}\n\n:::\n\n\n## { background-image=\"preview-image-mof.png\" background-opacity=\"0.7\" background-size=\"contain\"  } \n::: header\n\nThis is a slide with a background image\n\n:::\n\n\n# NEW SECTION \n\n## Bullets \n\nRemove the incremental ::: bracketed div for plain lists\n\n::: {.incremental}\n- the quick\n- brown fox\n- jumps over\n- the lazy dog\n:::\n\n## Columns\n\n:::: {.columns}\n\n::: {.column width=\"50%\"}\nSome text on the left of the slide\n:::\n\n::: {.column width=\"50%\"}\nSome text on the right of the slide\n:::\n\n::::\n\n## Smaller Slide {.smaller}\n\nThe text on this slide will be, um, _smaller_.\n\n# Speaker Notes\n\nThis is how to add speaker notes and replace the footer on a single slide.\n\n**SPEAKER NOTES REQUIRE A WEB SERVER**\n\n::: footer\nCustom!\n:::\n\n::: {.notes}\ndo re me fa so la ti doh!\n:::\n\n## Sneaky Info (Asides & Bootnotes) \n\nThis is cool! ^[No it is not] \n\nAdd `reference-location: document` to the YAML for end notes.\n\n::: aside\nI am at the bottom of the slide\n:::\n\n## Scrolly Slide {.scrollable}\n\nOverflowed content will be scrollable on this slide.\n\n## Bootnotes\n\n## A slide with a plot\n\n\n::: {.cell output-location='column'}\n\n```{.r .cell-code}\n# ^^ could be fragment, slide, column, column-fragment\nggplot() +\n  geom_point(\n    data = mtcars,\n    aes(wt, mpg),\n    color = \"goldenrod\"\n  ) +\n  labs(\n    title = \"Some Dots\"\n  ) \n```\n\n::: {.cell-output-display}\n![](slides-template_files/figure-revealjs/unnamed-chunk-2-1.png){width=1536}\n:::\n:::\n",
+    "supporting": [
+      "slides-template_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
