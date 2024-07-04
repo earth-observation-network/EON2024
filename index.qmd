@@ -24,9 +24,9 @@ comments: false
 # Welcome EON Summer School 2024 (01.9-06.09-2024)
 
 ::: {layout-ncol="2"}
-![Polsterberger Hubhaus 2022](/images/clausiwood.png)
+![Site Area Polsterberger Hubhaus 2022](/images/clausiwood.png)
 
-![Polsterberger Hubhaus 2023](/images/2023.jpg)
+![Site Area Polsterberger Hubhaus 2023](/images/2023.jpg)
 :::
 
 # Area of Interest
