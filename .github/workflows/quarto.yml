@@ -35,15 +35,15 @@ jobs:
             any::ggplot2
             any::patchwork
             any::kableExtra
-            any::"sp"
-            any::"dplyr"
-            any::"lwgeom"
-            any::"readxl"
-            any::"highfrequency"
-            any::"tidyverse"
-            any::"tibble"
-            any::"xts"
-            any::"data.table"
+            any::sp
+            any::dplyr
+            any::lwgeom
+            any::readxl
+            any::highfrequency
+            any::tidyverse
+            any::tibble
+            any::xts
+            any::data.table
             any::stars
             any::gstat
       - name: Set up Quarto
