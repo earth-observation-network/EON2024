@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/modules/slidelist.html",
+    "items": [
+      "/modules/de-git-module.html",
+      "/modules/en-git-module.html"
+    ]
+  },
+  {
+    "listing": "/slides/slidelist.html",
+    "items": [
+      "/slides/slide1.html"
+    ]
+  }
+]
