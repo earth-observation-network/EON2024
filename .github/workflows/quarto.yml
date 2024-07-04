@@ -20,8 +20,8 @@ jobs:
         with:
           cache-version: 2
           extra-packages: |
-            any::ggplot2
-            any::rcmdcheck
+            any::rmarkdown
+            any::knitr
           needs: |
             website
             coverage
