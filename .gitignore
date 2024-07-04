@@ -2,4 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+/.quarto
+.github/workflows/quarto.yml
+
 /.quarto/
