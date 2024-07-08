@@ -188,17 +188,6 @@
     "text": "A slide with a plot\n\n\n# ^^ could be fragment, slide, column, column-fragment\nggplot() +\n  geom_point(\n    data = mtcars,\n    aes(wt, mpg),\n    color = \"goldenrod\"\n  ) +\n  labs(\n    title = \"Some Dots\"\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\nYOUR ORG\n\n\n\n\n\n\n\n \n\n\nthe incredible talk about making sense scales"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome EON Summer School 2024 (01.9-06.09-2024)",
-    "section": "",
-    "text": "Site Area Polsterberger Hubhaus 2022\n\n\n\n\n\n\n\nSite Area Polsterberger Hubhaus 2023",
-    "crumbs": [
-      "Welcome",
-      "Welcome EON Summer School 2024 (01.9-06.09-2024)"
-    ]
-  },
-  {
     "objectID": "index.html#sensors-equipment",
     "href": "index.html#sensors-equipment",
     "title": "Welcome EON Summer School 2024 (01.9-06.09-2024)",
