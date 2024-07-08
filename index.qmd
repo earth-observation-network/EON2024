@@ -23,7 +23,7 @@ comments: false
 
 # Welcome EON Summer School 2024 (01.9-06.09-2024)
 
-# Preliminary Programm (Draft)
+# Preliminary Programm (2024)
 
 -   Sunday (Waldhaus):
     -   17:00-17:30 Check-in \@ "The Cabin" (Waldhaus) Oderbrück
@@ -36,23 +36,22 @@ comments: false
     -    16:30-18:00h Group Work
       
 -   Tuesday (Waldhaus & Excursion):
-    -   09:00-13:00h **Excursion with NP-Harz ** to visit some mire and discuss toopics of water retention (Glinka, NP-Harz)
+    -   09:00-13:00h **Excursion with NP-Harz ** to visit some mire and discuss topics of water retention (Glinka, NP-Harz)
     -   13:30 Lunch @ Waldhaus
-    -   14:00-16:00 **Block 3 ** ??? Current topics of remote sensing assisted forest inventories in the context of forest manaagement planning. (Andrea Plazas, NFP-Niedersachen) 
-(Jakub Nowosad)
+    -   14:00-16:00 **Block 2  Current topics of remote sensing assisted forest inventories in the context of forest management planning.** (Andrea Plazas, NFP-Niedersachen) 
     -   16:00-18:00 Group work
       
 -   Wednesday (Waldhaus & Excursion):
-    -   9:00-12:30 **Block 4 "Machine learning and validation"** (Hanna Meyer, Uni Münster)
-    -   12:30 Lunch @ Polsterbergerhubhaus ??
+    -   09:00-12:30 **Block 3 "Machine learning and validation"** (Hanna Meyer, Uni Münster)
+    -   12:30 Lunch @ Polsterbergerhubhaus
     -   14:00 - **Joint data collections campaign** \@ Polstertalerhubhaus
     
 -   Thursday (Waldhaus):
-    -   9:00:10:00 **Block 2 Measuring microclimate with mobile climate station** (Chris Reudenbach, Uni Marburg)
-    -   10:00-11:00 **Block 3 Modelling microclimate** (Chris Reudenbach, Uni Marburg)
+    -   09:00-10:00 **Block 4 Measuring microclimate with mobile climate station** (Chris Reudenbach, Uni Marburg)
+    -   10:00-11:00 **Block 5 Modelling microclimate** (Chris Reudenbach, Uni Marburg)
     -   11:00-12:00 group work
     -   12:30 Lunch @ Waldhaus
-    -   14:00-16:00  **Block 4 Landscape metrics** (Jakub Novosad, ?)
+    -   14:00-16:00  **Block 6 Landscape metrics** (Jakub Novosad)
     -   16:00-18:00 Group work
 
 -   Friday (Waldhaus):
