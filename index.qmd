@@ -23,46 +23,6 @@ comments: false
 
 # Welcome EON Summer School 2024 (01.9-06.09-2024)
 
-::: {layout-ncol="2"}
-![Site Area Polsterberger Hubhaus 2022](/images/clausiwood.png)
-
-![Site Area Polsterberger Hubhaus 2023](/images/2023.jpg)
-:::
-
-# Area of Interest
-
-We plan to work in the area of the forest district "Claustahl" which is in the west of the City Claustahl-Zellerfeld.
-
-![](https://pad.gwdg.de/uploads/632f2325-7a43-447e-8a23-1eb989b9218f.png)
-
-This forest area was dominate by spruce trees which all died in the last years.
-
-![](/images/aoi.png)
-
-You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.php/s/yomQwefzLDwyTa6):
-
-
-## Sensors & Equipment
-
--   HAWK:
-    -   Mavic 3 (Enterprise + Thermal + Multispectral)
-    -   GNSS (Emlid, Alberding, Garmin)
-    -   Tablets (Android)
-    -   Forest Measurement Devices (diameter tapes, calipers, vertex, laser range finders, ...)
-    -   GeoSlam Mobile Laser Scanner
--   Uni Münster:
-    -   Mica Sens red edge (Multispektral)
-    -   WIRIS thermal camera
-    -   L1 Lidar (Dji)
-    -   Sony Alpha (42mp) RGB camera
-    -   ppm 10xx GNSS Sensor
--   Uni Marburg:
-    - Mavic 3 (Enterprise + Thermal + Multispectral) 
-    - Mavic 3 Mini Pro
-    - LoRa based real time climate sensors 
-
-------------------------------------------------------------------------
-
 # Preliminary Programm (Draft)
 
 -   Sunday (Waldhaus):
@@ -101,6 +61,7 @@ You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.
     -   12:00-13:00 Workshop closing / evaluation
     -   **14:00 pm Departure**
 
+------------------------------------------------------------------------
 
 # Accomondation
 
@@ -122,3 +83,42 @@ You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.
 -   Outdoor/Hiking gear
 -   You can bring you own bed linen or rent it (\~9€)
 -   Slippers
+
+::: {layout-ncol="2"}
+![Site Area Polsterberger Hubhaus 2022](/images/clausiwood.png)
+
+![Site Area Polsterberger Hubhaus 2023](/images/2023.jpg)
+:::
+
+# Area of Interest
+
+We plan to work in the area of the forest district "Claustahl" which is in the west of the City Claustahl-Zellerfeld.
+
+![](https://pad.gwdg.de/uploads/632f2325-7a43-447e-8a23-1eb989b9218f.png)
+
+This forest area was dominate by spruce trees which all died in the last years.
+
+![](/images/aoi.png)
+
+You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.php/s/yomQwefzLDwyTa6):
+
+
+## Sensors & Equipment
+
+-   HAWK:
+    -   Mavic 3 (Enterprise + Thermal + Multispectral)
+    -   GNSS (Emlid, Alberding, Garmin)
+    -   Tablets (Android)
+    -   Forest Measurement Devices (diameter tapes, calipers, vertex, laser range finders, ...)
+    -   GeoSlam Mobile Laser Scanner
+-   Uni Münster:
+    -   Mica Sens red edge (Multispektral)
+    -   WIRIS thermal camera
+    -   L1 Lidar (Dji)
+    -   Sony Alpha (42mp) RGB camera
+    -   ppm 10xx GNSS Sensor
+-   Uni Marburg:
+    - Mavic 3 (Enterprise + Thermal + Multispectral) 
+    - Mavic 3 Mini Pro
+    - LoRa based real time climate sensors 
+
