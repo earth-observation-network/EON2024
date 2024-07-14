@@ -1,10 +1,10 @@
 ---
 title: ""
 open-graph:
-  description: "EON Summer School 2024 (01.9-06.09-2024)"
+  description: "EON Summer School 2024 (01-06.09.2024)"
   image: /images/clausiwood.png
 twitter-card:
-  description: "EON Summer School 2024 (01.9-06.09-2024)"
+  description: "EON Summer School 2024 (01-06.09.2024)"
   image: /images/clausiwood.png
 
 comments: false
@@ -21,44 +21,44 @@ comments: false
 </style>
 ```
 
-# Welcome EON Summer School 2024 (01.9-06.09-2024)
+# Welcome EON Summer School 2024 (01-06.09.2024)
 
-# Preliminary Programm (2024)
+# Preliminary Program (2024)
 
 -   Sunday (Waldhaus):
-    -   17:00-17:30 Check-in \@ "The Cabin" (Waldhaus) Oderbrück
+    -   17:00-17:30 Check-in @ "The Cabin" (Waldhaus) Oderbrück
     -   17:30-18:00 Welcome & Introduction
     
 -   Monday (Waldhaus):
-    -    09:00-12:00 **Excursion with local forest district manager** to get an introduce to the Harz region and its current situation
+    -    09:00-12:00 **Excursion with a local forest district manager** to get an introduction to the Harz region and its current situation
     -    12:30 Lunch @ Waldaus
     -    14:00-16:00 **Block 1 Collection of reference data** in the context of forest monitoring (Paul Magdon, HAWK)
     -    16:30-18:00h Group Work
       
 -   Tuesday (Waldhaus & Excursion):
-    -   09:00-13:00h **Excursion with NP-Harz ** to visit some mire and discuss topics of water retention (Glinka, NP-Harz)
+    -   09:00-13:00h **Excursion with NP-Harz** to visit some mire and discuss topics of water retention (Glinka, NP-Harz)
     -   13:30 Lunch @ Waldhaus
-    -   14:00-16:00 **Block 2  Current topics of remote sensing assisted forest inventories in the context of forest management planning.** (Andrea Plazas, NFP-Niedersachen) 
+    -   14:00-16:00 **Block 2 Current topics of remote sensing assisted forest inventories in the context of forest management planning** (Andrea Plazas, NFP-Niedersachen) 
     -   16:00-18:00 Group work
       
 -   Wednesday (Waldhaus & Excursion):
-    -   09:00-12:30 **Block 3 "Machine learning and validation"** (Hanna Meyer, Uni Münster)
+    -   09:00-12:30 **Block 3 Machine learning and validation** (Hanna Meyer, Uni Münster)
     -   12:30 Lunch @ Polsterbergerhubhaus
-    -   14:00 - **Joint data collections campaign** \@ Polstertalerhubhaus
+    -   14:00 - **Joint data collections campaign** @ Polstertalerhubhaus
     
 -   Thursday (Waldhaus):
     -   09:00-10:00 **Block 4 Measuring microclimate with mobile climate station** (Chris Reudenbach, Uni Marburg)
     -   10:00-11:00 **Block 5 Modelling microclimate** (Chris Reudenbach, Uni Marburg)
     -   11:00-12:00 group work
     -   12:30 Lunch @ Waldhaus
-    -   14:00-16:00  **Block 6 Landscape metrics** (Jakub Novosad)
+    -   14:00-16:00  **Block 6 Describing and comparing spatial patterns** (Jakub Nowosad, Uni Münster)
     -   16:00-18:00 Group work
 
 -   Friday (Waldhaus):
     -   09:00-11:00 Group work
     -   11:00-12:00 **Final Presentation of the group work**
     -   12:00-13:00 Workshop closing / evaluation
-    -   **14:00 pm Departure**
+    -   14:00 **Departure**
 
 ------------------------------------------------------------------------
 
@@ -70,13 +70,13 @@ comments: false
 # Catering
 
 -   The house offers a great kitchen which will be used for the self catering.
--   We plan to buy food & drinks jointly and organise the cooking etc on our own. So be prepared to help with the cooking etc.
+-   We plan to buy food & drinks jointly and organise the cooking, etc., on our own. So be prepared to help with the cooking, etc.
 
 # What to bring?
 
 -   Enthusiasm for field work in forest monitoring and remote sensing :)
 -   A laptop where you have admin permissions and with the following software installed:
-    -   R/Rstudio
+    -   R/RStudio
     -   QGIS
     -   Notepad++/geany
 -   Outdoor/Hiking gear
@@ -91,7 +91,7 @@ comments: false
 
 # Area of Interest
 
-We plan to work in the area of the forest district "Claustahl" which is in the west of the City Claustahl-Zellerfeld.
+We plan to work in the area of the forest district "Claustahl" which is in the west of the city Claustahl-Zellerfeld.
 
 ![](https://pad.gwdg.de/uploads/632f2325-7a43-447e-8a23-1eb989b9218f.png)
 
@@ -111,7 +111,7 @@ You can download the geopackage with the AOI [here](https://cloud.hawk.de/index.
     -   Forest Measurement Devices (diameter tapes, calipers, vertex, laser range finders, ...)
     -   GeoSlam Mobile Laser Scanner
 -   Uni Münster:
-    -   Mica Sens red edge (Multispektral)
+    -   Mica Sens red edge (Multispectral)
     -   WIRIS thermal camera
     -   L1 Lidar (Dji)
     -   Sony Alpha (42mp) RGB camera
