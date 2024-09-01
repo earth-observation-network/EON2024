@@ -13,10 +13,10 @@
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
 <script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
 <link href="../site_libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+  <meta name="generator" content="quarto-1.3.433">
 
   <meta name="author" content="gisma team">
-  <title>EON Summer School 2024 – Slides and extensions</title>
+  <title>EON Summer School 2024 - Slides and extensions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -36,7 +36,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -47,7 +47,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -75,7 +75,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.cf { color: #003b4f; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -89,7 +89,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.kw { color: #003b4f; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -226,8 +226,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -390,10 +389,10 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Slides and extensions – EON Summer School 2024">
+<meta property="og:title" content="EON Summer School 2024 - Slides and extensions">
 <meta property="og:description" content="basically shows the 3 extensions samples">
-<meta property="og:site_name" content="EON Summer School 2024">
-<meta name="twitter:title" content="Slides and extensions – EON Summer School 2024">
+<meta property="og:site-name" content="EON Summer School 2024">
+<meta name="twitter:title" content="EON Summer School 2024 - Slides and extensions">
 <meta name="twitter:description" content="basically shows the 3 extensions samples">
 <meta name="twitter:creator" content="@gisma">
 <meta name="twitter:card" content="summary">
@@ -418,76 +417,76 @@ gisma team
 <section class="slide level2">
 
 <p>The title slide is configured by the following part of the <code>yaml</code> header:</p>
-<div class="sourceCode" id="cb1" data-code-line-numbers="2-7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="pp">---</span></span>
-<span id="cb1-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Slides and extensions"</span></span>
-<span id="cb1-3"><a></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"basically shows the 3 extensions samples"</span></span>
-<span id="cb1-4"><a></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> slide1/mof.png</span></span>
-<span id="cb1-6"><a></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> contain</span></span>
-<span id="cb1-7"><a></a><span class="at">  </span><span class="fu">data-background-opacity</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.5"</span></span>
-<span id="cb1-8"><a></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-9"><a></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb1-10"><a></a><span class="at"> </span><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
-<span id="cb1-11"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="2-7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Slides and extensions"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"basically shows the 3 extensions samples"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> slide1/mof.png</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> contain</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="at">  </span><span class="fu">data-background-opacity</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.5"</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="at"> </span><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="header-12" class="slide level2">
 <h2>Header (1|2)</h2>
 <p>The support of header and footer logic is provided by the plugin <code>reveal-header</code>. it is activated by:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> reveal-header</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> reveal-header</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="header-22" class="slide level2">
 <h2>Header (2|2)</h2>
 <p>In this example you will find a basic header and footer text, pagination and a logo in the upper left corner .</p>
-<div class="sourceCode" id="cb3" data-code-line-numbers="10-13"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="pp">---</span></span>
-<span id="cb3-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Slides and extensions"</span></span>
-<span id="cb3-3"><a></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"basically shows the 3 extensions samples"</span></span>
-<span id="cb3-4"><a></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> slide1/mof.png</span></span>
-<span id="cb3-6"><a></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> contain</span></span>
-<span id="cb3-7"><a></a><span class="at">  </span><span class="fu">data-background-opacity</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.5"</span></span>
-<span id="cb3-8"><a></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb3-10"><a></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-11"><a></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> &lt;gisma 2023&gt;</span></span>
-<span id="cb3-12"><a></a><span class="at">    </span><span class="fu">header</span><span class="kw">:</span><span class="at"> This is the header extension</span></span>
-<span id="cb3-13"><a></a><span class="at">    </span><span class="fu">header-logo</span><span class="kw">:</span><span class="at"> slide1/logooil.jpg</span></span>
-<span id="cb3-14"><a></a><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
-<span id="cb3-15"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-code-line-numbers="10-13"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Slides and extensions"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"basically shows the 3 extensions samples"</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> slide1/mof.png</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> contain</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="at">  </span><span class="fu">data-background-opacity</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.5"</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> &lt;gisma 2023&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="at">    </span><span class="fu">header</span><span class="kw">:</span><span class="at"> This is the header extension</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="at">    </span><span class="fu">header-logo</span><span class="kw">:</span><span class="at"> slide1/logooil.jpg</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="spotlight-12" class="slide level2">
 <h2>Spotlight (1|2)</h2>
 <p>The support of a pointer or similar pointing features is provided by the plugin <code>spotlight</code>. it is activated by:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> spotlight</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> spotlight</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="spotlight-22" class="slide level2">
 <h2>Spotlight (2|2)</h2>
 <p>Currently the spotlight is set to a red dot pointer. Just press the left mouse button and use it. It is defined in the header:</p>
-<div class="sourceCode" id="cb5" data-code-line-numbers="9-11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
-<span id="cb5-2"><a></a><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
-<span id="cb5-3"><a></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb5-5"><a></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-6"><a></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> &lt;gisma 2023&gt;</span></span>
-<span id="cb5-7"><a></a><span class="at">    </span><span class="fu">header</span><span class="kw">:</span><span class="at"> This is the header extension</span></span>
-<span id="cb5-8"><a></a><span class="at">    </span><span class="fu">header-logo</span><span class="kw">:</span><span class="at"> slide1/logooil.jpg</span></span>
-<span id="cb5-9"><a></a><span class="at">    </span><span class="fu">spotlight</span><span class="kw">:</span></span>
-<span id="cb5-10"><a></a><span class="at">      </span><span class="fu">useAsPointer</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-11"><a></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb5-12"><a></a></span>
-<span id="cb5-13"><a></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb5-14"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span>
-<span id="cb5-15"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> reveal-header</span></span>
-<span id="cb5-16"><a></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
-<span id="cb5-17"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> spotlight</span></span>
-<span id="cb5-18"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-code-line-numbers="9-11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> &lt;gisma 2023&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="at">    </span><span class="fu">header</span><span class="kw">:</span><span class="at"> This is the header extension</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="at">    </span><span class="fu">header-logo</span><span class="kw">:</span><span class="at"> slide1/logooil.jpg</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="at">    </span><span class="fu">spotlight</span><span class="kw">:</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="at">      </span><span class="fu">useAsPointer</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="at">  </span><span class="kw">-</span><span class="at"> reveal-header</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="at">  </span><span class="kw">-</span><span class="at"> spotlight</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="highlighting-concept" class="slide level2">
 <h2>Highlighting concept</h2>
 <p>The support of complex highlighting etc. is provided by the plugin <code>roughnotation</code>. it is activated by:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To activate the highlighting interactively press the <strong><code>r</code></strong> key. It will start any notation animations:</p>
 <p>I will be <span class="rn">highlighted</span>, and so will <span class="rn">these words right here</span></p>
 </section>
@@ -526,7 +525,8 @@ gisma team
 </div><div class="column" style="width:50%;">
 <p>Many types to choose from!</p>
 <p>Hyphenated options can be used like so <code>rn-type=strike-through</code></p>
-</div></div>
+</div>
+</div>
 </section>
 <section id="options---multiline" class="slide level2">
 <h2>Options - Multiline</h2>
@@ -547,11 +547,11 @@ gisma team
 <section id="fenced-divs" class="slide level2">
 <h2>Fenced divs</h2>
 <p>You can also use fenced divs if you want to apply the changes to larger sections of of the slide</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a>::: {.rn rn-type=box rn-color=red}</span>
-<span id="cb7-2"><a></a>Here is some text</span>
-<span id="cb7-3"><a></a></span>
-<span id="cb7-4"><a></a>And there is more here</span>
-<span id="cb7-5"><a></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a>::: {.rn rn-type=box rn-color=red}</span>
+<span id="cb7-2"><a href="#cb7-2"></a>Here is some text</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>And there is more here</span>
+<span id="cb7-5"><a href="#cb7-5"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="rn" data-rn-type="box" data-rn-color="red">
 <p>Here is some text</p>
 <p>And there is more here</p>
@@ -566,10 +566,8 @@ gisma team
 <h2>Basic Reference</h2>
 <p>Find more informations at <a href="https://quarto.org/docs/presentations/revealjs/">Quarto RevealJS Documentation</a></p>
 
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>&lt;gisma 2023&gt;</p>
-</div>
 </div>
 <div class="reveal-header">
 <div class="header-logo">
@@ -613,6 +611,7 @@ gisma team
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -830,7 +829,18 @@ gisma team
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -862,50 +872,11 @@ gisma team
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/earth-observation-network\.github\.io\/EON2024");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -915,17 +886,8 @@ gisma team
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -939,11 +901,7 @@ gisma team
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
