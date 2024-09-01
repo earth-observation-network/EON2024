@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paul Magdon[University of Applied Sciences and Arts (HAWK), paul.magdon@hawk.de]">
-<meta name="dcterms.date" content="2024-08-27">
+<meta name="dcterms.date" content="2025-05-08">
 
-<title>EON Summer School 2024 - Collection of validation data in the context of remote sensing based forest monitoring</title>
+<title>Collection of validation data in the context of remote sensing based forest monitoring – EON Summer School 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,38 +97,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../css/styles.css">
-<meta property="og:title" content="EON Summer School 2024 - Collection of validation data in the context of remote sensing based forest monitoring">
+<meta property="og:title" content="Collection of validation data in the context of remote sensing based forest monitoring – EON Summer School 2024">
 <meta property="og:description" content="Tutorial for the EON Summer School 2024">
-<meta property="og:image" content="https://earth-observation-network.github.io/EON2024/tdv_session/02_ValidationDataCollection_files/figure-html/RMSEest-1.png">
-<meta property="og:site-name" content="EON Summer School 2024">
-<meta property="og:image:height" content="960">
-<meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="EON Summer School 2024 - Collection of validation data in the context of remote sensing based forest monitoring">
+<meta property="og:site_name" content="EON Summer School 2024">
+<meta name="twitter:title" content="Collection of validation data in the context of remote sensing based forest monitoring – EON Summer School 2024">
 <meta name="twitter:description" content="Tutorial for the EON Summer School 2024">
-<meta name="twitter:image" content="https://earth-observation-network.github.io/EON2024/tdv_session/02_ValidationDataCollection_files/figure-html/RMSEest-1.png">
 <meta name="twitter:creator" content="@gisma">
-<meta name="twitter:image-height" content="960">
-<meta name="twitter:image-width" content="1344">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../images/logooil.jpg" alt="" class="navbar-logo">
     </a>
@@ -131,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">EON Summer School 2024</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools ms-auto">
+        <div class="quarto-navbar-tools tools-end">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Search"></div>
@@ -139,26 +166,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tdv_session/01_TrainingDataCollection.html">Reference Data Collection</a></li><li class="breadcrumb-item"><a href="../tdv_session/02_ValidationDataCollection.html">Collection of validation data in the context of remote sensing based forest monitoring</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tdv_session/01_TrainingDataCollection.html">Reference Data Collection</a></li><li class="breadcrumb-item"><a href="../tdv_session/02_ValidationDataCollection.html">Collection of validation data in the context of remote sensing based forest monitoring</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Welcome</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -174,9 +201,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Reference Data Collection</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -198,9 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Microclimate Data Retrieval &amp; Spatial Data Interpolation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -228,9 +255,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -247,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -259,22 +286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#collect-a-random-sample" id="toc-collect-a-random-sample" class="nav-link" data-scroll-target="#collect-a-random-sample">Collect a random sample</a></li>
   <li><a href="#simulation-of-many-random-samples" id="toc-simulation-of-many-random-samples" class="nav-link" data-scroll-target="#simulation-of-many-random-samples">Simulation of many random samples</a></li>
   <li><a href="#systematic-sampling" id="toc-systematic-sampling" class="nav-link" data-scroll-target="#systematic-sampling">Systematic sampling</a></li>
-  <li><a href="#evaluating-the-agb-model" id="toc-evaluating-the-agb-model" class="nav-link" data-scroll-target="#evaluating-the-agb-model">Evaluating the AGB-Model</a>
-  <ul class="collapse">
-  <li><a href="#systematic-sample-to-collect-reference-data-for-map-validation" id="toc-systematic-sample-to-collect-reference-data-for-map-validation" class="nav-link" data-scroll-target="#systematic-sample-to-collect-reference-data-for-map-validation">Systematic sample to collect reference data for map validation</a></li>
-  <li><a href="#assessment-of-the-abg-model-performance" id="toc-assessment-of-the-abg-model-performance" class="nav-link" data-scroll-target="#assessment-of-the-abg-model-performance">Assessment of the ABG-model performance</a>
-  <ul class="collapse">
-  <li><a href="#sample-rmse" id="toc-sample-rmse" class="nav-link" data-scroll-target="#sample-rmse">Sample RMSE</a></li>
-  <li><a href="#error-distribution" id="toc-error-distribution" class="nav-link" data-scroll-target="#error-distribution">Error distribution</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/earth-observation-network/EON2024/edit/main/tdv_session/02_ValidationDataCollection.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/earth-observation-network/EON2024/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/earth-observation-network/EON2024/edit/main/tdv_session/02_ValidationDataCollection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/earth-observation-network/EON2024/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tdv_session/01_TrainingDataCollection.html">Reference Data Collection</a></li><li class="breadcrumb-item"><a href="../tdv_session/02_ValidationDataCollection.html">Collection of validation data in the context of remote sensing based forest monitoring</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Collection of validation data in the context of remote sensing based forest monitoring</h1>
 <p class="subtitle lead">Tutorial for the EON Summer School 2024</p>
@@ -294,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 27, 2024</p>
+      <p class="date">May 8, 2025</p>
     </div>
   </div>
   
@@ -302,46 +320,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Paket 'sf' wurde unter R Version 4.3.3 erstellt</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.11.2, GDAL 3.8.2, PROJ 9.3.1; sf_use_s2() is TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Paket 'terra' wurde unter R Version 4.3.3 erstellt</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>terra 1.7.78</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Paket 'ggplot2' wurde unter R Version 4.3.3 erstellt</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rprojroot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Paket 'rprojroot' wurde unter R Version 4.3.3 erstellt</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Paket 'patchwork' wurde unter R Version 4.3.3 erstellt</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attache Paket: 'patchwork'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Das folgende Objekt ist maskiert 'package:terra':
 
-    area</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.3.1; sf_use_s2() is TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>wd<span class="ot">=</span><span class="fu">paste0</span>(<span class="fu">find_rstudio_root_file</span>(),<span class="st">"/tdv_session/data/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Lade nötiges Paket: sp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rprojroot)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>wd<span class="ot">=</span><span class="fu">paste0</span>(<span class="fu">find_rstudio_root_file</span>(),<span class="st">"/tdv_session/data/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
@@ -357,10 +351,10 @@ Attache Paket: 'patchwork'</code></pre>
 <p>For demonstration purposes we will work with a map of forest above ground biomass (AGB) produced by the Joint Research Center(JRC) for the European Union European Commission (Joint Research Centre (JRC) (2020) http://data.europa.eu/89h/d1fdf7aa-df33-49af-b7d5-40d226ec0da3.)</p>
 <p>To provide a synthetic example we will assume that this map (agb_pop) is an error free representation of the population. Additionally we use a second map (agb_model) compiled using a machine learning model (RF) also depicting the AGB distribution.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>np_boundary <span class="ot">=</span> <span class="fu">st_transform</span>(<span class="fu">st_read</span>(<span class="fu">paste0</span>(wd,<span class="st">"nlp-harz_aussengrenze.gpkg"</span>)),<span class="dv">25832</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np_boundary <span class="ot">=</span> <span class="fu">st_transform</span>(<span class="fu">st_read</span>(<span class="fu">paste0</span>(wd,<span class="st">"nlp-harz_aussengrenze.gpkg"</span>)),<span class="dv">25832</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `nlp-harz_aussengrenze' from data source 
-  `C:\Users\pmagdon\Documents\EON2024\tdv_session\data\nlp-harz_aussengrenze.gpkg' 
+  `/home/creu/edu/gisma-courses/EON2024/tdv_session/data/nlp-harz_aussengrenze.gpkg' 
   using driver `GPKG'
 Simple feature collection with 1 feature and 3 fields
 Geometry type: MULTIPOLYGON
@@ -368,16 +362,16 @@ Dimension:     XY
 Bounding box:  xmin: 591196.6 ymin: 5725081 xmax: 619212.6 ymax: 5751232
 Projected CRS: WGS 84 / UTM zone 32N</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>agb_pop <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="fu">paste0</span>(wd,<span class="st">"agb_np_harz_truth.tif"</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>agb_model <span class="ot">&lt;-</span>terra<span class="sc">::</span><span class="fu">rast</span>(<span class="fu">paste0</span>(wd,<span class="st">"agb_np_harz_model.tif"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>agb_pop <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="fu">paste0</span>(wd,<span class="st">"agb_np_harz_truth.tif"</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>agb_model <span class="ot">&lt;-</span><span class="fu">raster</span>(<span class="fu">paste0</span>(wd,<span class="st">"agb_np_harz_model.tif"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we assume the <span class="math inline">\(z(x_i)=\)</span> agb.pop to be an exact representation of the population we can calculate the Root mean Square Error (RMSE) as the difference between the model predictions <span class="math inline">\(\hat{z(x_i)}\)</span> and the population map with:</p>
 <p><span class="math display">\[
-RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{})-\hat{z}(x_{i}))^2}}
+RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{ctor. Also today there was wind, not good for m3 i})-\hat{z}(x_{i}))^2}}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>RMSE_pop <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">sqrt</span>(terra<span class="sc">::</span><span class="fu">global</span>((agb_pop<span class="sc">-</span>agb_model)<span class="sc">^</span><span class="dv">2</span>,<span class="at">fun=</span><span class="st">'mean'</span>,<span class="at">na.rm=</span><span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>RMSE_pop <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">cellStats</span>((agb_pop<span class="sc">-</span>agb_model)<span class="sc">^</span><span class="dv">2</span>, mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By looking at the difference from the “true” AGB and the difference we get a true RMSE of <em>41.23</em> t/ha.</p>
 </section>
@@ -385,1096 +379,107 @@ RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{})-\hat{z}(x_{i}))^2}}
 <h1>Collect a random sample</h1>
 <p>Since we know the true RMSE, we can test if a random sample estimate has a similar RMSE. We start with a random sample with <span class="math inline">\(n=100\)</span> sample points.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">100</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_sf</span>(<span class="at">data=</span>np_boundary,<span class="at">fill=</span><span class="cn">NA</span>)<span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">100</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(np_boundary))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p1,<span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">pch=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/RMSEest-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="02_ValidationDataCollection_files/figure-html/RMSEest-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can now extract the population values and the model values at the sample locations and calculate the RMSE for all sample points.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>((agb_pop<span class="sc">-</span>agb_model),<span class="fu">vect</span>(p1))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'ID'</span>,<span class="st">'Diff'</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>RMSE_est <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((sample<span class="sc">$</span>Diff)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">extract</span>((agb_pop<span class="sc">-</span>agb_model),<span class="fu">as_Spatial</span>(p1))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>RMSE_est <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((sample)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The random sample estimates the RMSE as 41.05.</p>
+<p>The random sample estimates the RMSE as 42.31.</p>
 <p>But is this an unbiased estimate?</p>
 </section>
 <section id="simulation-of-many-random-samples" class="level1">
 <h1>Simulation of many random samples</h1>
 <p>To check if our sample based estimates are unbiased we will repeat the sampling <span class="math inline">\(k\)</span> times.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dif <span class="ot">&lt;-</span> agb_pop<span class="sc">-</span>agb_model</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>seed<span class="ot">&lt;-</span> <span class="dv">12324</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dif)<span class="ot">&lt;-</span><span class="st">'dif'</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>RMSE <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(dif,<span class="fu">vect</span>(p1))</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  RMSE[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error<span class="sc">$</span>dif)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5
-[1] 6
-[1] 7
-[1] 8
-[1] 9
-[1] 10
-[1] 11
-[1] 12
-[1] 13
-[1] 14
-[1] 15
-[1] 16
-[1] 17
-[1] 18
-[1] 19
-[1] 20
-[1] 21
-[1] 22
-[1] 23
-[1] 24
-[1] 25
-[1] 26
-[1] 27
-[1] 28
-[1] 29
-[1] 30
-[1] 31
-[1] 32
-[1] 33
-[1] 34
-[1] 35
-[1] 36
-[1] 37
-[1] 38
-[1] 39
-[1] 40
-[1] 41
-[1] 42
-[1] 43
-[1] 44
-[1] 45
-[1] 46
-[1] 47
-[1] 48
-[1] 49
-[1] 50
-[1] 51
-[1] 52
-[1] 53
-[1] 54
-[1] 55
-[1] 56
-[1] 57
-[1] 58
-[1] 59
-[1] 60
-[1] 61
-[1] 62
-[1] 63
-[1] 64
-[1] 65
-[1] 66
-[1] 67
-[1] 68
-[1] 69
-[1] 70
-[1] 71
-[1] 72
-[1] 73
-[1] 74
-[1] 75
-[1] 76
-[1] 77
-[1] 78
-[1] 79
-[1] 80
-[1] 81
-[1] 82
-[1] 83
-[1] 84
-[1] 85
-[1] 86
-[1] 87
-[1] 88
-[1] 89
-[1] 90
-[1] 91
-[1] 92
-[1] 93
-[1] 94
-[1] 95
-[1] 96
-[1] 97
-[1] 98
-[1] 99
-[1] 100
-[1] 101
-[1] 102
-[1] 103
-[1] 104
-[1] 105
-[1] 106
-[1] 107
-[1] 108
-[1] 109
-[1] 110
-[1] 111
-[1] 112
-[1] 113
-[1] 114
-[1] 115
-[1] 116
-[1] 117
-[1] 118
-[1] 119
-[1] 120
-[1] 121
-[1] 122
-[1] 123
-[1] 124
-[1] 125
-[1] 126
-[1] 127
-[1] 128
-[1] 129
-[1] 130
-[1] 131
-[1] 132
-[1] 133
-[1] 134
-[1] 135
-[1] 136
-[1] 137
-[1] 138
-[1] 139
-[1] 140
-[1] 141
-[1] 142
-[1] 143
-[1] 144
-[1] 145
-[1] 146
-[1] 147
-[1] 148
-[1] 149
-[1] 150
-[1] 151
-[1] 152
-[1] 153
-[1] 154
-[1] 155
-[1] 156
-[1] 157
-[1] 158
-[1] 159
-[1] 160
-[1] 161
-[1] 162
-[1] 163
-[1] 164
-[1] 165
-[1] 166
-[1] 167
-[1] 168
-[1] 169
-[1] 170
-[1] 171
-[1] 172
-[1] 173
-[1] 174
-[1] 175
-[1] 176
-[1] 177
-[1] 178
-[1] 179
-[1] 180
-[1] 181
-[1] 182
-[1] 183
-[1] 184
-[1] 185
-[1] 186
-[1] 187
-[1] 188
-[1] 189
-[1] 190
-[1] 191
-[1] 192
-[1] 193
-[1] 194
-[1] 195
-[1] 196
-[1] 197
-[1] 198
-[1] 199
-[1] 200
-[1] 201
-[1] 202
-[1] 203
-[1] 204
-[1] 205
-[1] 206
-[1] 207
-[1] 208
-[1] 209
-[1] 210
-[1] 211
-[1] 212
-[1] 213
-[1] 214
-[1] 215
-[1] 216
-[1] 217
-[1] 218
-[1] 219
-[1] 220
-[1] 221
-[1] 222
-[1] 223
-[1] 224
-[1] 225
-[1] 226
-[1] 227
-[1] 228
-[1] 229
-[1] 230
-[1] 231
-[1] 232
-[1] 233
-[1] 234
-[1] 235
-[1] 236
-[1] 237
-[1] 238
-[1] 239
-[1] 240
-[1] 241
-[1] 242
-[1] 243
-[1] 244
-[1] 245
-[1] 246
-[1] 247
-[1] 248
-[1] 249
-[1] 250
-[1] 251
-[1] 252
-[1] 253
-[1] 254
-[1] 255
-[1] 256
-[1] 257
-[1] 258
-[1] 259
-[1] 260
-[1] 261
-[1] 262
-[1] 263
-[1] 264
-[1] 265
-[1] 266
-[1] 267
-[1] 268
-[1] 269
-[1] 270
-[1] 271
-[1] 272
-[1] 273
-[1] 274
-[1] 275
-[1] 276
-[1] 277
-[1] 278
-[1] 279
-[1] 280
-[1] 281
-[1] 282
-[1] 283
-[1] 284
-[1] 285
-[1] 286
-[1] 287
-[1] 288
-[1] 289
-[1] 290
-[1] 291
-[1] 292
-[1] 293
-[1] 294
-[1] 295
-[1] 296
-[1] 297
-[1] 298
-[1] 299
-[1] 300
-[1] 301
-[1] 302
-[1] 303
-[1] 304
-[1] 305
-[1] 306
-[1] 307
-[1] 308
-[1] 309
-[1] 310
-[1] 311
-[1] 312
-[1] 313
-[1] 314
-[1] 315
-[1] 316
-[1] 317
-[1] 318
-[1] 319
-[1] 320
-[1] 321
-[1] 322
-[1] 323
-[1] 324
-[1] 325
-[1] 326
-[1] 327
-[1] 328
-[1] 329
-[1] 330
-[1] 331
-[1] 332
-[1] 333
-[1] 334
-[1] 335
-[1] 336
-[1] 337
-[1] 338
-[1] 339
-[1] 340
-[1] 341
-[1] 342
-[1] 343
-[1] 344
-[1] 345
-[1] 346
-[1] 347
-[1] 348
-[1] 349
-[1] 350
-[1] 351
-[1] 352
-[1] 353
-[1] 354
-[1] 355
-[1] 356
-[1] 357
-[1] 358
-[1] 359
-[1] 360
-[1] 361
-[1] 362
-[1] 363
-[1] 364
-[1] 365
-[1] 366
-[1] 367
-[1] 368
-[1] 369
-[1] 370
-[1] 371
-[1] 372
-[1] 373
-[1] 374
-[1] 375
-[1] 376
-[1] 377
-[1] 378
-[1] 379
-[1] 380
-[1] 381
-[1] 382
-[1] 383
-[1] 384
-[1] 385
-[1] 386
-[1] 387
-[1] 388
-[1] 389
-[1] 390
-[1] 391
-[1] 392
-[1] 393
-[1] 394
-[1] 395
-[1] 396
-[1] 397
-[1] 398
-[1] 399
-[1] 400
-[1] 401
-[1] 402
-[1] 403
-[1] 404
-[1] 405
-[1] 406
-[1] 407
-[1] 408
-[1] 409
-[1] 410
-[1] 411
-[1] 412
-[1] 413
-[1] 414
-[1] 415
-[1] 416
-[1] 417
-[1] 418
-[1] 419
-[1] 420
-[1] 421
-[1] 422
-[1] 423
-[1] 424
-[1] 425
-[1] 426
-[1] 427
-[1] 428
-[1] 429
-[1] 430
-[1] 431
-[1] 432
-[1] 433
-[1] 434
-[1] 435
-[1] 436
-[1] 437
-[1] 438
-[1] 439
-[1] 440
-[1] 441
-[1] 442
-[1] 443
-[1] 444
-[1] 445
-[1] 446
-[1] 447
-[1] 448
-[1] 449
-[1] 450
-[1] 451
-[1] 452
-[1] 453
-[1] 454
-[1] 455
-[1] 456
-[1] 457
-[1] 458
-[1] 459
-[1] 460
-[1] 461
-[1] 462
-[1] 463
-[1] 464
-[1] 465
-[1] 466
-[1] 467
-[1] 468
-[1] 469
-[1] 470
-[1] 471
-[1] 472
-[1] 473
-[1] 474
-[1] 475
-[1] 476
-[1] 477
-[1] 478
-[1] 479
-[1] 480
-[1] 481
-[1] 482
-[1] 483
-[1] 484
-[1] 485
-[1] 486
-[1] 487
-[1] 488
-[1] 489
-[1] 490
-[1] 491
-[1] 492
-[1] 493
-[1] 494
-[1] 495
-[1] 496
-[1] 497
-[1] 498
-[1] 499
-[1] 500</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'a'</span>,k))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x))<span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data=</span><span class="fu">subset</span>(df,y<span class="sc">==</span><span class="st">'a'</span>),</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span><span class="st">'blue'</span>, <span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE (t/ha)'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">linewidth=</span><span class="fl">1.5</span>,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dif <span class="ot">&lt;-</span> <span class="fu">as</span>((agb_pop<span class="sc">-</span>agb_model), <span class="st">'SpatialGridDataFrame'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>seed<span class="ot">&lt;-</span> <span class="dv">12324</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>RMSE <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(i)</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> <span class="fu">spsample</span>(<span class="fu">as_Spatial</span>(np_boundary),<span class="at">n=</span>n,<span class="at">type=</span><span class="st">'random'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crs</span>(p1)<span class="ot">&lt;-</span><span class="fu">crs</span>(dif)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#sample &lt;- raster::extract((agb_pop-agb_model),p1)</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span><span class="fu">over</span>(p1,dif)<span class="sc">$</span>layer</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  RMSE[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'a'</span>,k))</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x))<span class="sc">+</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data=</span><span class="fu">subset</span>(df,y<span class="sc">==</span><span class="st">'a'</span>),</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span><span class="st">'blue'</span>, <span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">linewidth=</span><span class="fl">1.5</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/simulation-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="02_ValidationDataCollection_files/figure-html/simulation-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We see that the true RMSE and the mean of the <span class="math inline">\(k\)</span> simulation runs are almost equal. Thus, we can assume an unbiased estimate of the RMSE.</p>
 <p>But how does the sample size <span class="math inline">\(n\)</span> affects the accuracy?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>RMSE_2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(dif,<span class="fu">vect</span>(p1))</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  RMSE_2[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error<span class="sc">$</span>dif)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5
-[1] 6
-[1] 7
-[1] 8
-[1] 9
-[1] 10
-[1] 11
-[1] 12
-[1] 13
-[1] 14
-[1] 15
-[1] 16
-[1] 17
-[1] 18
-[1] 19
-[1] 20
-[1] 21
-[1] 22
-[1] 23
-[1] 24
-[1] 25
-[1] 26
-[1] 27
-[1] 28
-[1] 29
-[1] 30
-[1] 31
-[1] 32
-[1] 33
-[1] 34
-[1] 35
-[1] 36
-[1] 37
-[1] 38
-[1] 39
-[1] 40
-[1] 41
-[1] 42
-[1] 43
-[1] 44
-[1] 45
-[1] 46
-[1] 47
-[1] 48
-[1] 49
-[1] 50
-[1] 51
-[1] 52
-[1] 53
-[1] 54
-[1] 55
-[1] 56
-[1] 57
-[1] 58
-[1] 59
-[1] 60
-[1] 61
-[1] 62
-[1] 63
-[1] 64
-[1] 65
-[1] 66
-[1] 67
-[1] 68
-[1] 69
-[1] 70
-[1] 71
-[1] 72
-[1] 73
-[1] 74
-[1] 75
-[1] 76
-[1] 77
-[1] 78
-[1] 79
-[1] 80
-[1] 81
-[1] 82
-[1] 83
-[1] 84
-[1] 85
-[1] 86
-[1] 87
-[1] 88
-[1] 89
-[1] 90
-[1] 91
-[1] 92
-[1] 93
-[1] 94
-[1] 95
-[1] 96
-[1] 97
-[1] 98
-[1] 99
-[1] 100
-[1] 101
-[1] 102
-[1] 103
-[1] 104
-[1] 105
-[1] 106
-[1] 107
-[1] 108
-[1] 109
-[1] 110
-[1] 111
-[1] 112
-[1] 113
-[1] 114
-[1] 115
-[1] 116
-[1] 117
-[1] 118
-[1] 119
-[1] 120
-[1] 121
-[1] 122
-[1] 123
-[1] 124
-[1] 125
-[1] 126
-[1] 127
-[1] 128
-[1] 129
-[1] 130
-[1] 131
-[1] 132
-[1] 133
-[1] 134
-[1] 135
-[1] 136
-[1] 137
-[1] 138
-[1] 139
-[1] 140
-[1] 141
-[1] 142
-[1] 143
-[1] 144
-[1] 145
-[1] 146
-[1] 147
-[1] 148
-[1] 149
-[1] 150
-[1] 151
-[1] 152
-[1] 153
-[1] 154
-[1] 155
-[1] 156
-[1] 157
-[1] 158
-[1] 159
-[1] 160
-[1] 161
-[1] 162
-[1] 163
-[1] 164
-[1] 165
-[1] 166
-[1] 167
-[1] 168
-[1] 169
-[1] 170
-[1] 171
-[1] 172
-[1] 173
-[1] 174
-[1] 175
-[1] 176
-[1] 177
-[1] 178
-[1] 179
-[1] 180
-[1] 181
-[1] 182
-[1] 183
-[1] 184
-[1] 185
-[1] 186
-[1] 187
-[1] 188
-[1] 189
-[1] 190
-[1] 191
-[1] 192
-[1] 193
-[1] 194
-[1] 195
-[1] 196
-[1] 197
-[1] 198
-[1] 199
-[1] 200
-[1] 201
-[1] 202
-[1] 203
-[1] 204
-[1] 205
-[1] 206
-[1] 207
-[1] 208
-[1] 209
-[1] 210
-[1] 211
-[1] 212
-[1] 213
-[1] 214
-[1] 215
-[1] 216
-[1] 217
-[1] 218
-[1] 219
-[1] 220
-[1] 221
-[1] 222
-[1] 223
-[1] 224
-[1] 225
-[1] 226
-[1] 227
-[1] 228
-[1] 229
-[1] 230
-[1] 231
-[1] 232
-[1] 233
-[1] 234
-[1] 235
-[1] 236
-[1] 237
-[1] 238
-[1] 239
-[1] 240
-[1] 241
-[1] 242
-[1] 243
-[1] 244
-[1] 245
-[1] 246
-[1] 247
-[1] 248
-[1] 249
-[1] 250
-[1] 251
-[1] 252
-[1] 253
-[1] 254
-[1] 255
-[1] 256
-[1] 257
-[1] 258
-[1] 259
-[1] 260
-[1] 261
-[1] 262
-[1] 263
-[1] 264
-[1] 265
-[1] 266
-[1] 267
-[1] 268
-[1] 269
-[1] 270
-[1] 271
-[1] 272
-[1] 273
-[1] 274
-[1] 275
-[1] 276
-[1] 277
-[1] 278
-[1] 279
-[1] 280
-[1] 281
-[1] 282
-[1] 283
-[1] 284
-[1] 285
-[1] 286
-[1] 287
-[1] 288
-[1] 289
-[1] 290
-[1] 291
-[1] 292
-[1] 293
-[1] 294
-[1] 295
-[1] 296
-[1] 297
-[1] 298
-[1] 299
-[1] 300
-[1] 301
-[1] 302
-[1] 303
-[1] 304
-[1] 305
-[1] 306
-[1] 307
-[1] 308
-[1] 309
-[1] 310
-[1] 311
-[1] 312
-[1] 313
-[1] 314
-[1] 315
-[1] 316
-[1] 317
-[1] 318
-[1] 319
-[1] 320
-[1] 321
-[1] 322
-[1] 323
-[1] 324
-[1] 325
-[1] 326
-[1] 327
-[1] 328
-[1] 329
-[1] 330
-[1] 331
-[1] 332
-[1] 333
-[1] 334
-[1] 335
-[1] 336
-[1] 337
-[1] 338
-[1] 339
-[1] 340
-[1] 341
-[1] 342
-[1] 343
-[1] 344
-[1] 345
-[1] 346
-[1] 347
-[1] 348
-[1] 349
-[1] 350
-[1] 351
-[1] 352
-[1] 353
-[1] 354
-[1] 355
-[1] 356
-[1] 357
-[1] 358
-[1] 359
-[1] 360
-[1] 361
-[1] 362
-[1] 363
-[1] 364
-[1] 365
-[1] 366
-[1] 367
-[1] 368
-[1] 369
-[1] 370
-[1] 371
-[1] 372
-[1] 373
-[1] 374
-[1] 375
-[1] 376
-[1] 377
-[1] 378
-[1] 379
-[1] 380
-[1] 381
-[1] 382
-[1] 383
-[1] 384
-[1] 385
-[1] 386
-[1] 387
-[1] 388
-[1] 389
-[1] 390
-[1] 391
-[1] 392
-[1] 393
-[1] 394
-[1] 395
-[1] 396
-[1] 397
-[1] 398
-[1] 399
-[1] 400
-[1] 401
-[1] 402
-[1] 403
-[1] 404
-[1] 405
-[1] 406
-[1] 407
-[1] 408
-[1] 409
-[1] 410
-[1] 411
-[1] 412
-[1] 413
-[1] 414
-[1] 415
-[1] 416
-[1] 417
-[1] 418
-[1] 419
-[1] 420
-[1] 421
-[1] 422
-[1] 423
-[1] 424
-[1] 425
-[1] 426
-[1] 427
-[1] 428
-[1] 429
-[1] 430
-[1] 431
-[1] 432
-[1] 433
-[1] 434
-[1] 435
-[1] 436
-[1] 437
-[1] 438
-[1] 439
-[1] 440
-[1] 441
-[1] 442
-[1] 443
-[1] 444
-[1] 445
-[1] 446
-[1] 447
-[1] 448
-[1] 449
-[1] 450
-[1] 451
-[1] 452
-[1] 453
-[1] 454
-[1] 455
-[1] 456
-[1] 457
-[1] 458
-[1] 459
-[1] 460
-[1] 461
-[1] 462
-[1] 463
-[1] 464
-[1] 465
-[1] 466
-[1] 467
-[1] 468
-[1] 469
-[1] 470
-[1] 471
-[1] 472
-[1] 473
-[1] 474
-[1] 475
-[1] 476
-[1] 477
-[1] 478
-[1] 479
-[1] 480
-[1] 481
-[1] 482
-[1] 483
-[1] 484
-[1] 485
-[1] 486
-[1] 487
-[1] 488
-[1] 489
-[1] 490
-[1] 491
-[1] 492
-[1] 493
-[1] 494
-[1] 495
-[1] 496
-[1] 497
-[1] 498
-[1] 499
-[1] 500</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE_2, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'b'</span>,k))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">rbind</span>(df,df_2)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">fill=</span>y))<span class="sc">+</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Random, n=50'</span>, <span class="st">'Random, n=100'</span>))<span class="sc">+</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE (t/ha)'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">size=</span><span class="fl">1.5</span>,</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>RMSE_2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(i)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> <span class="fu">spsample</span>(<span class="fu">as_Spatial</span>(np_boundary),<span class="at">n=</span>n,<span class="at">type=</span><span class="st">'random'</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crs</span>(p1)<span class="ot">&lt;-</span><span class="fu">crs</span>(dif)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#sample &lt;- raster::extract((agb_pop-agb_model),p1)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span><span class="fu">over</span>(p1,dif)<span class="sc">$</span>layer</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  RMSE_2[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE_2, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'b'</span>,k))</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">rbind</span>(df,df_2)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">fill=</span>y))<span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Random, n=50'</span>, <span class="st">'Random, n=100'</span>))<span class="sc">+</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">size=</span><span class="fl">1.5</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/Simulation2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="02_ValidationDataCollection_files/figure-html/Simulation2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We see that the precision of the esimtates is increased. How much did the uncertainty decrease when we increase the sample size from <span class="math inline">\(n=50\)</span> to <span class="math inline">\(n=100\)</span>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(RMSE_2)<span class="sc">/</span><span class="fu">sd</span>(RMSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(RMSE_2)<span class="sc">/</span><span class="fu">sd</span>(RMSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6896569</code></pre>
+<pre><code>[1] 0.6675957</code></pre>
 </div>
 </div>
 </section>
@@ -1486,665 +491,51 @@ RMSE = \sqrt{\frac{1}{N}\sum{(z(x_{})-\hat{z}(x_{i}))^2}}
 <li>Ensures a balanced spatial coverage</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n,<span class="at">type=</span><span class="st">'regular'</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_sf</span>(<span class="at">data=</span>np_boundary,<span class="at">fill=</span><span class="cn">NA</span>)<span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">spsample</span>(<span class="fu">as_Spatial</span>(np_boundary),<span class="at">n=</span>n,<span class="at">type=</span><span class="st">'regular'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(np_boundary<span class="sc">$</span>geom)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p1, <span class="at">add=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/systematicSample-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="02_ValidationDataCollection_files/figure-html/systematicSample-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>RMSE_3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n,<span class="at">type=</span><span class="st">'regular'</span>)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(dif,<span class="fu">vect</span>(p1))</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  RMSE_3[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error<span class="sc">$</span>dif)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5
-[1] 6
-[1] 7
-[1] 8
-[1] 9
-[1] 10
-[1] 11
-[1] 12
-[1] 13
-[1] 14
-[1] 15
-[1] 16
-[1] 17
-[1] 18
-[1] 19
-[1] 20
-[1] 21
-[1] 22
-[1] 23
-[1] 24
-[1] 25
-[1] 26
-[1] 27
-[1] 28
-[1] 29
-[1] 30
-[1] 31
-[1] 32
-[1] 33
-[1] 34
-[1] 35
-[1] 36
-[1] 37
-[1] 38
-[1] 39
-[1] 40
-[1] 41
-[1] 42
-[1] 43
-[1] 44
-[1] 45
-[1] 46
-[1] 47
-[1] 48
-[1] 49
-[1] 50
-[1] 51
-[1] 52
-[1] 53
-[1] 54
-[1] 55
-[1] 56
-[1] 57
-[1] 58
-[1] 59
-[1] 60
-[1] 61
-[1] 62
-[1] 63
-[1] 64
-[1] 65
-[1] 66
-[1] 67
-[1] 68
-[1] 69
-[1] 70
-[1] 71
-[1] 72
-[1] 73
-[1] 74
-[1] 75
-[1] 76
-[1] 77
-[1] 78
-[1] 79
-[1] 80
-[1] 81
-[1] 82
-[1] 83
-[1] 84
-[1] 85
-[1] 86
-[1] 87
-[1] 88
-[1] 89
-[1] 90
-[1] 91
-[1] 92
-[1] 93
-[1] 94
-[1] 95
-[1] 96
-[1] 97
-[1] 98
-[1] 99
-[1] 100
-[1] 101
-[1] 102
-[1] 103
-[1] 104
-[1] 105
-[1] 106
-[1] 107
-[1] 108
-[1] 109
-[1] 110
-[1] 111
-[1] 112
-[1] 113
-[1] 114
-[1] 115
-[1] 116
-[1] 117
-[1] 118
-[1] 119
-[1] 120
-[1] 121
-[1] 122
-[1] 123
-[1] 124
-[1] 125
-[1] 126
-[1] 127
-[1] 128
-[1] 129
-[1] 130
-[1] 131
-[1] 132
-[1] 133
-[1] 134
-[1] 135
-[1] 136
-[1] 137
-[1] 138
-[1] 139
-[1] 140
-[1] 141
-[1] 142
-[1] 143
-[1] 144
-[1] 145
-[1] 146
-[1] 147
-[1] 148
-[1] 149
-[1] 150
-[1] 151
-[1] 152
-[1] 153
-[1] 154
-[1] 155
-[1] 156
-[1] 157
-[1] 158
-[1] 159
-[1] 160
-[1] 161
-[1] 162
-[1] 163
-[1] 164
-[1] 165
-[1] 166
-[1] 167
-[1] 168
-[1] 169
-[1] 170
-[1] 171
-[1] 172
-[1] 173
-[1] 174
-[1] 175
-[1] 176
-[1] 177
-[1] 178
-[1] 179
-[1] 180
-[1] 181
-[1] 182
-[1] 183
-[1] 184
-[1] 185
-[1] 186
-[1] 187
-[1] 188
-[1] 189
-[1] 190
-[1] 191
-[1] 192
-[1] 193
-[1] 194
-[1] 195
-[1] 196
-[1] 197
-[1] 198
-[1] 199
-[1] 200
-[1] 201
-[1] 202
-[1] 203
-[1] 204
-[1] 205
-[1] 206
-[1] 207
-[1] 208
-[1] 209
-[1] 210
-[1] 211
-[1] 212
-[1] 213
-[1] 214
-[1] 215
-[1] 216
-[1] 217
-[1] 218
-[1] 219
-[1] 220
-[1] 221
-[1] 222
-[1] 223
-[1] 224
-[1] 225
-[1] 226
-[1] 227
-[1] 228
-[1] 229
-[1] 230
-[1] 231
-[1] 232
-[1] 233
-[1] 234
-[1] 235
-[1] 236
-[1] 237
-[1] 238
-[1] 239
-[1] 240
-[1] 241
-[1] 242
-[1] 243
-[1] 244
-[1] 245
-[1] 246
-[1] 247
-[1] 248
-[1] 249
-[1] 250
-[1] 251
-[1] 252
-[1] 253
-[1] 254
-[1] 255
-[1] 256
-[1] 257
-[1] 258
-[1] 259
-[1] 260
-[1] 261
-[1] 262
-[1] 263
-[1] 264
-[1] 265
-[1] 266
-[1] 267
-[1] 268
-[1] 269
-[1] 270
-[1] 271
-[1] 272
-[1] 273
-[1] 274
-[1] 275
-[1] 276
-[1] 277
-[1] 278
-[1] 279
-[1] 280
-[1] 281
-[1] 282
-[1] 283
-[1] 284
-[1] 285
-[1] 286
-[1] 287
-[1] 288
-[1] 289
-[1] 290
-[1] 291
-[1] 292
-[1] 293
-[1] 294
-[1] 295
-[1] 296
-[1] 297
-[1] 298
-[1] 299
-[1] 300
-[1] 301
-[1] 302
-[1] 303
-[1] 304
-[1] 305
-[1] 306
-[1] 307
-[1] 308
-[1] 309
-[1] 310
-[1] 311
-[1] 312
-[1] 313
-[1] 314
-[1] 315
-[1] 316
-[1] 317
-[1] 318
-[1] 319
-[1] 320
-[1] 321
-[1] 322
-[1] 323
-[1] 324
-[1] 325
-[1] 326
-[1] 327
-[1] 328
-[1] 329
-[1] 330
-[1] 331
-[1] 332
-[1] 333
-[1] 334
-[1] 335
-[1] 336
-[1] 337
-[1] 338
-[1] 339
-[1] 340
-[1] 341
-[1] 342
-[1] 343
-[1] 344
-[1] 345
-[1] 346
-[1] 347
-[1] 348
-[1] 349
-[1] 350
-[1] 351
-[1] 352
-[1] 353
-[1] 354
-[1] 355
-[1] 356
-[1] 357
-[1] 358
-[1] 359
-[1] 360
-[1] 361
-[1] 362
-[1] 363
-[1] 364
-[1] 365
-[1] 366
-[1] 367
-[1] 368
-[1] 369
-[1] 370
-[1] 371
-[1] 372
-[1] 373
-[1] 374
-[1] 375
-[1] 376
-[1] 377
-[1] 378
-[1] 379
-[1] 380
-[1] 381
-[1] 382
-[1] 383
-[1] 384
-[1] 385
-[1] 386
-[1] 387
-[1] 388
-[1] 389
-[1] 390
-[1] 391
-[1] 392
-[1] 393
-[1] 394
-[1] 395
-[1] 396
-[1] 397
-[1] 398
-[1] 399
-[1] 400
-[1] 401
-[1] 402
-[1] 403
-[1] 404
-[1] 405
-[1] 406
-[1] 407
-[1] 408
-[1] 409
-[1] 410
-[1] 411
-[1] 412
-[1] 413
-[1] 414
-[1] 415
-[1] 416
-[1] 417
-[1] 418
-[1] 419
-[1] 420
-[1] 421
-[1] 422
-[1] 423
-[1] 424
-[1] 425
-[1] 426
-[1] 427
-[1] 428
-[1] 429
-[1] 430
-[1] 431
-[1] 432
-[1] 433
-[1] 434
-[1] 435
-[1] 436
-[1] 437
-[1] 438
-[1] 439
-[1] 440
-[1] 441
-[1] 442
-[1] 443
-[1] 444
-[1] 445
-[1] 446
-[1] 447
-[1] 448
-[1] 449
-[1] 450
-[1] 451
-[1] 452
-[1] 453
-[1] 454
-[1] 455
-[1] 456
-[1] 457
-[1] 458
-[1] 459
-[1] 460
-[1] 461
-[1] 462
-[1] 463
-[1] 464
-[1] 465
-[1] 466
-[1] 467
-[1] 468
-[1] 469
-[1] 470
-[1] 471
-[1] 472
-[1] 473
-[1] 474
-[1] 475
-[1] 476
-[1] 477
-[1] 478
-[1] 479
-[1] 480
-[1] 481
-[1] 482
-[1] 483
-[1] 484
-[1] 485
-[1] 486
-[1] 487
-[1] 488
-[1] 489
-[1] 490
-[1] 491
-[1] 492
-[1] 493
-[1] 494
-[1] 495
-[1] 496
-[1] 497
-[1] 498
-[1] 499
-[1] 500</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_3<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE_3, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'c'</span>,k))</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">rbind</span>(df,df_3)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">fill=</span>y))<span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Random, n=50'</span>, <span class="st">'Random, n=100'</span>,<span class="st">'Systematic, n=100'</span>))<span class="sc">+</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE (t/ha)'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">size=</span><span class="fl">1.5</span>,</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>RMSE_3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,k) </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(i)</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">=</span> <span class="fu">spsample</span>(<span class="fu">as_Spatial</span>(np_boundary),<span class="at">n=</span>n,<span class="at">type=</span><span class="st">'regular'</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crs</span>(p1)<span class="ot">&lt;-</span><span class="fu">crs</span>(dif)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  error<span class="ot">&lt;-</span><span class="fu">over</span>(p1,dif)<span class="sc">$</span>layer</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  RMSE_3[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>((error)<span class="sc">^</span><span class="dv">2</span>,<span class="at">na.rm=</span>T))</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>df_3<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>RMSE_3, <span class="at">y=</span><span class="fu">rep</span>(<span class="st">'c'</span>,k))</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">rbind</span>(df,df_3)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">fill=</span>y))<span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Random, n=50'</span>, <span class="st">'Random, n=100'</span>,<span class="st">'Systematic, n=100'</span>))<span class="sc">+</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'RMSE'</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>RMSE_pop,<span class="at">size=</span><span class="fl">1.5</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                          <span class="at">color =</span><span class="st">'black'</span>, <span class="at">linetype=</span><span class="st">'longdash'</span>)<span class="sc">+</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(df<span class="sc">$</span>x),<span class="at">size=</span><span class="fl">1.5</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span><span class="st">'black'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/SystematicSimlation-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="02_ValidationDataCollection_files/figure-html/SystematicSimlation-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</div>
-</section>
-<section id="evaluating-the-agb-model" class="level1">
-<h1>Evaluating the AGB-Model</h1>
-<section id="systematic-sample-to-collect-reference-data-for-map-validation" class="level2">
-<h2 class="anchored" data-anchor-id="systematic-sample-to-collect-reference-data-for-map-validation">Systematic sample to collect reference data for map validation</h2>
-<p>To validate the map we use a systematic sample grid. In a real world application we do not know the true population values. Therefore, field work would be needed to collect reference data at the selected sample points. In this workshop we assume that the agp_pop map represents the true value without any errors. Thus, we don’t need to go to field but we can sample the data by extracting the true values from the map at the sample locations.</p>
-<div class="cell" data-hash="02_ValidationDataCollection_cache/html/Sample_fab3ee2f64ccc999cc588506c134d11a">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we will use n=100 sample plots</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">100</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sample</span>(np_boundary,<span class="at">size=</span>n,<span class="at">type=</span><span class="st">'regular'</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_sf</span>(<span class="at">data=</span>np_boundary,<span class="at">fill=</span><span class="cn">NA</span>)<span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/Sample-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>At each sample point we extract the predicted and observed AGB value.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(agb_pop,<span class="fu">vect</span>(p1))</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obs)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'ID'</span>,<span class="st">'obs'</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(agb_model,<span class="fu">vect</span>(p1))</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pred)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'ID'</span>,<span class="st">'pred'</span>)</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>validation<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">observed=</span>obs<span class="sc">$</span>obs, <span class="at">predicted=</span>pred<span class="sc">$</span>pred)</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="co"># we need to remove the na values from this dataframe. In real world applications</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># such NA values can,  occur for example at inaccessible field plots.</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>validation<span class="ot">&lt;-</span>validation[<span class="fu">complete.cases</span>(validation),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="assessment-of-the-abg-model-performance" class="level2">
-<h2 class="anchored" data-anchor-id="assessment-of-the-abg-model-performance">Assessment of the ABG-model performance</h2>
-<div class="cell" data-hash="02_ValidationDataCollection_cache/html/Collect Values_dc54611ea9b6f8daf7c8b73631a7c127">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>validation,<span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted))<span class="sc">+</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Observed AGB t/ha'</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">'Predicted AGB t/ha'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/Collect Values-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<section id="sample-rmse" class="level3">
-<h3 class="anchored" data-anchor-id="sample-rmse">Sample RMSE</h3>
-<p>Again we can use the RMSE to express the mean difference between observed and predicted AGB.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>RMSE_sample <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((validation<span class="sc">$</span>observed<span class="sc">-</span>validation<span class="sc">$</span>predicted)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">nrow</span>(validation))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The sample RMSE is 39.14* t/ha. To better compare the values between different target variables and models is can also express as a proportion relative to the mean value of the predictions.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>rRMSE <span class="ot">=</span> RMSE_sample<span class="sc">/</span><span class="fu">mean</span>(validation<span class="sc">$</span>predicted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>On average we expect that the AGB estimate of our model has an error of 23.7 %.</p>
-</section>
-<section id="error-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="error-distribution">Error distribution</h3>
-<p>But is this RMSE valid for the entire range of the observed values or do we expect higher errors for higher AGB values?</p>
-<p>To see how the model performs over target value range we can use the following analysis plots.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>validation<span class="sc">$</span>resid<span class="ot">&lt;-</span>validation<span class="sc">$</span>observed<span class="sc">-</span>validation<span class="sc">$</span>predicted</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>validation,<span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted))<span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Observed AGB t/ha'</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">'Predicted AGB t/ha'</span>)<span class="sc">+</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">250</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">250</span>)<span class="sc">+</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span> mean_cl_normal) <span class="sc">+</span> </span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">'lm'</span>)</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>validation,<span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>resid))<span class="sc">+</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Observed AGB t/ha'</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">'Residuals'</span>)<span class="sc">+</span></span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">250</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">50</span>,<span class="sc">+</span><span class="dv">50</span>)<span class="sc">+</span></span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">0</span>,<span class="at">intercept =</span> <span class="dv">1</span>)</span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>validation,<span class="fu">aes</span>(<span class="at">x=</span>resid))<span class="sc">+</span></span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span>..density..),<span class="at">fill=</span><span class="st">'grey'</span>,<span class="at">binwidth=</span><span class="dv">10</span>)<span class="sc">+</span></span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">'Observed AGB t/ha'</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">'Density'</span>)<span class="sc">+</span></span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">150</span>,<span class="dv">150</span>)<span class="sc">+</span></span>
-<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">geom=</span><span class="st">"polygon"</span>,<span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(validation<span class="sc">$</span>resid), <span class="at">sd =</span> <span class="fu">sd</span>(validation<span class="sc">$</span>resid)),<span class="at">color=</span><span class="st">'blue'</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">fill=</span><span class="st">'blue'</span>)<span class="sc">+</span></span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">'blue'</span>)<span class="sc">+</span></span>
-<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(validation<span class="sc">$</span>resid),<span class="at">color=</span><span class="st">'red'</span>)</span>
-<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3<span class="sc">+</span><span class="fu">plot_layout</span>(<span class="at">ncol=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 7 rows containing non-finite outside the scale range
-(`stat_summary()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 7 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 7 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 91 rows containing missing values or values outside the scale range
-(`geom_segment()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 16 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
-ℹ Please use `after_stat(density)` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_bar()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="02_ValidationDataCollection_files/figure-html/Model-Performance-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -2189,6 +580,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2257,13 +675,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2298,18 +718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2341,11 +750,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.quarto\.org\/custom");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2355,8 +810,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2368,7 +832,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2412,6 +999,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2437,6 +1025,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2494,27 +1108,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.quarto\.org\/custom");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../tdv_session/01_TrainingDataCollection.html" class="pagination-link">
+      <a href="../tdv_session/01_TrainingDataCollection.html" class="pagination-link" aria-label="Collection of training data for remote sensing model building">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Collection of training data for remote sensing model building</span>
       </a>          
   </div>
@@ -2527,12 +1125,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Earth Observation Network Harz Summerschool (2024)</div>
+    <div class="nav-footer-center">
+<p>Earth Observation Network Harz Summerschool (2024)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/earth-observation-network/EON2024/edit/main/tdv_session/02_ValidationDataCollection.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/earth-observation-network/EON2024/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

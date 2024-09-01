@@ -13,10 +13,10 @@
 <script src="../site_libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
 <script src="../site_libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
 <link href="../site_libs/quarto-contrib/grid-htext-1.0.0/grid_htext.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Peter PAN">
-  <title>EON Summer School 2024 - YOUR TITLE</title>
+  <title>EON Summer School 2024 – YOUR TITLE</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -36,7 +36,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -47,7 +47,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -226,7 +226,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -389,9 +390,9 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="EON Summer School 2024 - YOUR TITLE">
-<meta property="og:site-name" content="EON Summer School 2024">
-<meta name="twitter:title" content="EON Summer School 2024 - YOUR TITLE">
+<meta property="og:title" content="YOUR TITLE – EON Summer School 2024">
+<meta property="og:site_name" content="EON Summer School 2024">
+<meta name="twitter:title" content="YOUR TITLE – EON Summer School 2024">
 <meta name="twitter:creator" content="@gisma">
 <meta name="twitter:card" content="summary">
 </head>
@@ -445,8 +446,7 @@ Peter PAN
 <p>Some text on the left of the slide</p>
 </div><div class="column" style="width:50%;">
 <p>Some text on the right of the slide</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="smaller-slide" class="slide level2 smaller">
 <h2>Smaller Slide</h2>
@@ -493,25 +493,30 @@ Peter PAN
 <h2>A slide with a plot</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># ^^ could be fragment, slide, column, column-fragment</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="at">data =</span> mtcars,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="fu">aes</span>(wt, mpg),</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="at">color =</span> <span class="st">"goldenrod"</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="at">title =</span> <span class="st">"Some Dots"</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># ^^ could be fragment, slide, column, column-fragment</span></span>
+<span id="cb1-2"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb1-4"><a></a>    <span class="at">data =</span> mtcars,</span>
+<span id="cb1-5"><a></a>    <span class="fu">aes</span>(wt, mpg),</span>
+<span id="cb1-6"><a></a>    <span class="at">color =</span> <span class="st">"goldenrod"</span></span>
+<span id="cb1-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb1-8"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-9"><a></a>    <span class="at">title =</span> <span class="st">"Some Dots"</span></span>
+<span id="cb1-10"><a></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="slides-template_files/figure-revealjs/unnamed-chunk-2-1.png" width="1536"></p>
+</figure>
 </div>
 </div>
-</div>
+</div></div>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p><a href="https://example.com/">YOUR ORG</a></p>
+</div>
 </div>
 <div class="reveal-header">
 <div class="header-logo">
@@ -556,7 +561,6 @@ Peter PAN
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -812,18 +816,7 @@ Peter PAN
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -855,11 +848,50 @@ Peter PAN
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/earth-observation-network\.github\.io\/EON2024");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -869,8 +901,17 @@ Peter PAN
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -884,7 +925,11 @@ Peter PAN
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
