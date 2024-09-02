@@ -407,38 +407,6 @@
     ]
   },
   {
-    "objectID": "base/faq.html",
-    "href": "base/faq.html",
-    "title": "Frequently asked Questions",
-    "section": "",
-    "text": "This is a senseless question to meet a meaningfull answer\n\n\n\n\n\n\n\n\n\nThis is a meaningful answer to a senseless question\n\n\n\n\n\n\n\n\n\nLearn More…\n\n\n\n\n\nThis is a even more meaningful answer to a senseless question"
-  },
-  {
-    "objectID": "base/faq.html#make-sense-topic",
-    "href": "base/faq.html#make-sense-topic",
-    "title": "Frequently asked Questions",
-    "section": "",
-    "text": "This is a senseless question to meet a meaningfull answer\n\n\n\n\n\n\n\n\n\nThis is a meaningful answer to a senseless question\n\n\n\n\n\n\n\n\n\nLearn More…\n\n\n\n\n\nThis is a even more meaningful answer to a senseless question"
-  },
-  {
-    "objectID": "block6/describing_and_comparing_spaital_patterns.html",
-    "href": "block6/describing_and_comparing_spaital_patterns.html",
-    "title": "EON Summer School 2024",
-    "section": "",
-    "text": "You can find all of the workshop materials at https://github.com/Nowosad/eon2024-exercises.",
-    "crumbs": [
-      "Block 6: Describing and comparing spatial patterns",
-      "describing_and_comparing_spaital_patterns.html"
-    ]
-  },
-  {
-    "objectID": "base/about.html",
-    "href": "base/about.html",
-    "title": "About this site",
-    "section": "",
-    "text": "About this site\nThis page summarizes the essential workflows , basic literature and web resources from the distributed course systems , documents and field protocols into a knowledge base.\nAlthough the web space is topic-centered any keyword can be searched using the full text search.\nThe creation of new pages, the editing of existing pages can be triggered directly via the right column online.\nOffline there are several visual editors and full integration with Rstudio etc."
-  },
-  {
     "objectID": "base/impressum.html#content-responsibility",
     "href": "base/impressum.html#content-responsibility",
     "title": "Impressum",
@@ -458,6 +426,38 @@
     "title": "Impressum",
     "section": "Comments & Suggestions",
     "text": "Comments & Suggestions"
+  },
+  {
+    "objectID": "base/about.html",
+    "href": "base/about.html",
+    "title": "About this site",
+    "section": "",
+    "text": "About this site\nThis page summarizes the essential workflows , basic literature and web resources from the distributed course systems , documents and field protocols into a knowledge base.\nAlthough the web space is topic-centered any keyword can be searched using the full text search.\nThe creation of new pages, the editing of existing pages can be triggered directly via the right column online.\nOffline there are several visual editors and full integration with Rstudio etc."
+  },
+  {
+    "objectID": "base/faq.html",
+    "href": "base/faq.html",
+    "title": "Frequently asked Questions",
+    "section": "",
+    "text": "This is a senseless question to meet a meaningfull answer\n\n\n\n\n\n\n\n\n\nThis is a meaningful answer to a senseless question\n\n\n\n\n\n\n\n\n\nLearn More…\n\n\n\n\n\nThis is a even more meaningful answer to a senseless question"
+  },
+  {
+    "objectID": "base/faq.html#make-sense-topic",
+    "href": "base/faq.html#make-sense-topic",
+    "title": "Frequently asked Questions",
+    "section": "",
+    "text": "This is a senseless question to meet a meaningfull answer\n\n\n\n\n\n\n\n\n\nThis is a meaningful answer to a senseless question\n\n\n\n\n\n\n\n\n\nLearn More…\n\n\n\n\n\nThis is a even more meaningful answer to a senseless question"
+  },
+  {
+    "objectID": "block6/describing_and_comparing_spaital_patterns.html",
+    "href": "block6/describing_and_comparing_spaital_patterns.html",
+    "title": "Describing and comparing spatial patterns",
+    "section": "",
+    "text": "You can find all of the workshop materials at https://github.com/Nowosad/eon2024-exercises.",
+    "crumbs": [
+      "Block 6: Describing and comparing spatial patterns",
+      "Describing and comparing spatial patterns"
+    ]
   },
   {
     "objectID": "mc_session/mc4.html",
