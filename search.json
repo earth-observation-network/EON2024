@@ -453,7 +453,7 @@
     "href": "block6/describing_and_comparing_spaital_patterns.html",
     "title": "Describing and comparing spatial patterns",
     "section": "",
-    "text": "You can find all of the workshop materials at https://github.com/Nowosad/eon2024-exercises.",
+    "text": "The workshop slides are at https://jakubnowosad.com/eon2024/.\nThe slides are accompanied by practical exercises. The best way to get them is to download the exercises repository as a ZIP file from https://github.com/Nowosad/eon2024-exercises/archive/refs/heads/main.zip and unpack it on your computer. Then, you can open the .Rproj file and start working on the exercises in RStudio.",
     "crumbs": [
       "Block 6: Describing and comparing spatial patterns",
       "Describing and comparing spatial patterns"
