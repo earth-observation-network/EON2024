@@ -453,7 +453,40 @@
     "href": "block6/describing_and_comparing_spaital_patterns.html",
     "title": "Describing and comparing spatial patterns",
     "section": "",
-    "text": "The workshop slides are at https://jakubnowosad.com/eon2024/.\nThe slides are accompanied by practical exercises. The best way to get them is to download the exercises repository as a ZIP file from https://github.com/Nowosad/eon2024-exercises/archive/refs/heads/main.zip and unpack it on your computer. Then, you can open the .Rproj file and start working on the exercises in RStudio.",
+    "text": "The workshop slides are at https://jakubnowosad.com/eon2024/.",
+    "crumbs": [
+      "Block 6: Describing and comparing spatial patterns",
+      "Describing and comparing spatial patterns"
+    ]
+  },
+  {
+    "objectID": "block6/describing_and_comparing_spaital_patterns.html#slides",
+    "href": "block6/describing_and_comparing_spaital_patterns.html#slides",
+    "title": "Describing and comparing spatial patterns",
+    "section": "",
+    "text": "The workshop slides are at https://jakubnowosad.com/eon2024/.",
+    "crumbs": [
+      "Block 6: Describing and comparing spatial patterns",
+      "Describing and comparing spatial patterns"
+    ]
+  },
+  {
+    "objectID": "block6/describing_and_comparing_spaital_patterns.html#prerequisites",
+    "href": "block6/describing_and_comparing_spaital_patterns.html#prerequisites",
+    "title": "Describing and comparing spatial patterns",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nAttendees are expected to have a working recent version or R and RStudio installed, along with several R packages listed below.\n\nR: https://cloud.r-project.org/\nRStudio: https://posit.co/download/rstudio-desktop/#download\n\ninstall.packages(\"remotes\")\npkg_list = c(\"terra\", \"sf\", \"landscapemetrics\", \"motif\", \"tidyr\", \"dplyr\")\nremotes::install_cran(pkg_list)",
+    "crumbs": [
+      "Block 6: Describing and comparing spatial patterns",
+      "Describing and comparing spatial patterns"
+    ]
+  },
+  {
+    "objectID": "block6/describing_and_comparing_spaital_patterns.html#exercises",
+    "href": "block6/describing_and_comparing_spaital_patterns.html#exercises",
+    "title": "Describing and comparing spatial patterns",
+    "section": "Exercises",
+    "text": "Exercises\nThe slides are accompanied by practical exercises. The best way to get them is to download the exercises repository as a ZIP file from https://github.com/Nowosad/eon2024-exercises/archive/refs/heads/main.zip and unpack it on your computer. Then, you can open the .Rproj file and start working on the exercises in RStudio.",
     "crumbs": [
       "Block 6: Describing and comparing spatial patterns",
       "Describing and comparing spatial patterns"
