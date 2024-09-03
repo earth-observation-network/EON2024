@@ -8,7 +8,7 @@ The workshop slides are at <https://jakubnowosad.com/eon2024/>.
 
 ## Prerequisites
 
-Attendees are expected to have a working recent version or R and RStudio installed, along with several R packages listed below.
+Participants are expected to have a working recent version of R and RStudio installed, along with several R packages listed below.
 
 - R: <https://cloud.r-project.org/>
 - RStudio: <https://posit.co/download/rstudio-desktop/#download>
