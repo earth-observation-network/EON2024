@@ -475,7 +475,7 @@
     "href": "block6/describing_and_comparing_spaital_patterns.html#prerequisites",
     "title": "Describing and comparing spatial patterns",
     "section": "Prerequisites",
-    "text": "Prerequisites\nAttendees are expected to have a working recent version or R and RStudio installed, along with several R packages listed below.\n\nR: https://cloud.r-project.org/\nRStudio: https://posit.co/download/rstudio-desktop/#download\n\ninstall.packages(\"remotes\")\npkg_list = c(\"terra\", \"sf\", \"landscapemetrics\", \"motif\", \"tidyr\", \"dplyr\")\nremotes::install_cran(pkg_list)",
+    "text": "Prerequisites\nParticipants are expected to have a working recent version of R and RStudio installed, along with several R packages listed below.\n\nR: https://cloud.r-project.org/\nRStudio: https://posit.co/download/rstudio-desktop/#download\n\ninstall.packages(\"remotes\")\npkg_list = c(\"terra\", \"sf\", \"landscapemetrics\", \"motif\", \"tidyr\", \"dplyr\")\nremotes::install_cran(pkg_list)",
     "crumbs": [
       "Block 6: Describing and comparing spatial patterns",
       "Describing and comparing spatial patterns"
