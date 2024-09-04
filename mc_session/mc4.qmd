@@ -12,17 +12,23 @@ about:
   image-width: 25em
   links:
     - icon: shop-window
-      text: Station inside the dead Fir plot (Ecowitt Dashboard Login required)
+      text: 2023 Station inside the dead Fir plot (Ecowitt Dashboard Login required)
       href: https://www.ecowitt.net/home/index?id=149300
     - icon: shop-window
-      text: Station inside the clear cut (Ecowitt Dashboard Login required)
+      text: 2023 Station inside the clear cut (Ecowitt Dashboard Login required)
       href: https://www.ecowitt.net/home/index?id=20166
     - icon: shop-window
-      text: Position Data of the climate stations
+      text: 2023 Position Data of the climate stations
       href: https://github.com/HannaMeyer/EON2023/blob/main/mc_session/data/stations_prelim.zip
+    - icon: shop-window
+      text: 2024 Station 
+      href: https://www.ecowitt.net/home/share?authorize=6KX30B
+ 
 
 ---
 ::: {#image-heading}
 Data logger and measurement data
 :::
+
+
 
