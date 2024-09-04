@@ -25,7 +25,7 @@ about:
       href: https://github.com/earth-observation-network/EON2024/blob/main/mc_session/data/raw_positions_2024.csv
     - icon: shop-window
       text: 2024 Station data
-      href: https://www.ecowitt.net/home/index?id=20166
+      href: https://www.ecowitt.net/home/share?authorize=6KX30B
 
 
 ---
