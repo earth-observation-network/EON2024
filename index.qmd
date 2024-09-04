@@ -42,9 +42,9 @@ comments: false
     -   16:00-18:00 Group work
       
 -   Wednesday (Waldhaus & Excursion):
-    -   09:00-12:30 **Block 3 Machine learning and validation** (Hanna Meyer, Uni Münster)
+    -   09:00-12:30 **Joint data collection campaign** @ Polstertalerhubhaus
     -   12:30 Lunch @ Polsterbergerhubhaus
-    -   14:00 - **Joint data collection campaign** @ Polstertalerhubhaus
+    -   14:00 **Block 3 Machine learning and validation** (Hanna Meyer, Uni Münster)
     
 -   Thursday (Waldhaus):
     -   09:00-10:00 **Block 4 Measuring microclimate with mobile climate station** (Chris Reudenbach, Uni Marburg)
