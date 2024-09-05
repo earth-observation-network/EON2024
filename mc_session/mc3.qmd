@@ -331,6 +331,7 @@ fn_area =paste0(wd,"plot.shp")
 # rds file for saving the cleaned up weather data
 cleandata = paste0(wd,"climdata.RDS")
 ```
+
 ```{r read_clean_data, message=FALSE, warning=FALSE}
 # 1 ---- read data ----
 # read_sf("data/de_nuts1.gpkg") |> st_transform(crs) -> de
