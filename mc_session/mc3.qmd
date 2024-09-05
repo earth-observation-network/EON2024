@@ -2,7 +2,7 @@
 title: "Spatial Interpolation"
 subtitle: "Tutorial: EON Summer School 2024"
 author: Chris Reudenbach, Philipps University Marburg (PUM)
-date: "2023-08-30"
+date: "2024-09-05"
 image: ../images/mc3.png
 about:
   id: image-heading
@@ -23,7 +23,7 @@ based is that of proximity, or location in relation to each other.
 
 ## Why do we want to fill spatial gaps?
 
-![Polsterhaus excursion research area RGB Orthoimage 05-09-2024](rgb_hub.png)
+![Polsterhaus excursion research area RGB Orthoimage 04-09-2024](rgb_hub.png)
 
 ![Polsterhaus excursion research area - Visual Pattern Interpretation](rgb_hub_areas.png)
 
