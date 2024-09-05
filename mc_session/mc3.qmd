@@ -296,8 +296,8 @@ Please download the data from the repository or take the USB-stick
 
 # load packages (if not installed please install)
 install.packages("remotes")
-pkg_list = c("raster","terra","sp","sf","dplyr","lwgeom","readxl","highfrequency","tidyverse","rprojroot","tibble","imputeTS","xts","data.table","mapview","stars","gstat","tmap")
-remotes::install_cran(pkg_list)
+pkg_list = c("terra","sp","sf","dplyr","lwgeom","readxl","highfrequency","tidyverse","rprojroot","tibble","imputeTS","xts","data.table","mapview","stars","gstat","tmap")
+#remotes::install_cran(pkg_list)
 lapply(pkg_list, require, character.only = TRUE)
 
 # create a string containing the current working directory
