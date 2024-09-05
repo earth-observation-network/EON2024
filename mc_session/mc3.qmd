@@ -21,6 +21,15 @@ considerable importance for describing and explaining spatial patterns
 based is that of proximity, or location in relation to each other.
 :::
 
+## Why do we want to fill spatial gaps?
+
+![Polsterhaus excursion research area RGB Orthoimage 05-09-2024](rgb_hub.png)
+
+![Polsterhaus excursion research area - Visual Pattern Interpretation](rgb_hub_areas.png)
+
+![Polsterhaus excursion research area stations 2023 (stars) 2024 (crosses)](rgb_hub_stations.png)
+
+
 ## Distance and data representation
 
 Let's take a closer look at proximity, which is mentioned frequently.
@@ -276,8 +285,6 @@ as a ZIP file from and unpack it on your computer.
 
 Then, you can open the `.Rproj` file and start working on the exercises
 in RStudio.
-
-
 
 ## Further Hands on examples
 
