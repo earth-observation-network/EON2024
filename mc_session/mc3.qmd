@@ -296,12 +296,12 @@ Please download the data from the repository or take the USB-stick
 
 # load packages (if not installed please install)
 install.packages("remotes")
-pkg_list = c("raster","terra","sp","sf","dplyr","lwgeom","readxl","highfrequency","tidyverse","rprojroot","tibble","imputeTS","xts","data.table","mapview","stars","gstat")
+pkg_list = c("raster","terra","sp","sf","dplyr","lwgeom","readxl","highfrequency","tidyverse","rprojroot","tibble","imputeTS","xts","data.table","mapview","stars","gstat","tmap")
 remotes::install_cran(pkg_list)
 lapply(pkg_list, require, character.only = TRUE)
 
 # create a string containing the current working directory
-wd=paste0(find_rstudio_root_file(),"/data_2023/")
+wd=paste0(find_rstudio_root_file(),"/data_2024/")
 
 # define time period to aggregate temp dat
 time_period = 1
@@ -331,6 +331,7 @@ fn_area =paste0(wd,"plot.shp")
 # rds file for saving the cleaned up weather data
 cleandata = paste0(wd,"climdata.RDS")
 ```
+
 
 ```{r read_clean_data, message=FALSE, warning=FALSE}
 # 1 ---- read data ----
@@ -508,7 +509,7 @@ tmap_arrange(tm_interpNN, tm_interpIDW, tm_idw_gstat,tm_vor,tm_krige)
 
 
 # for all time slots
-for (var in vars[7:8]){
+for (var in vars[15:18]){
   # autofit variogramm for kriging 
   vm.auto = automap::autofitVariogram(formula = as.formula(paste("altitude", "~ 1")),
                                       input_data = m)
@@ -520,7 +521,7 @@ for (var in vars[7:8]){
               vm.auto$var_model)
   plot(k)
   # save to geotiff
-  stars::write_stars(k,paste0(wd,var,"v_interpol.tif"),overwrite=TRUE)
+  #stars::write_stars(k,paste0(wd,var,"v_interpol.tif"),overwrite=TRUE)
   
 }
 
