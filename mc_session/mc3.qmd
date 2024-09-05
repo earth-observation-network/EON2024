@@ -268,6 +268,11 @@ Learning!](https://youtu.be/reY50t2hbuM) (6:17)
 
 ## Hands on our data
 
+Download the [exercises repository](https://github.com/gisma-courses/eon2024-mc/blob/master/Archiv_EON2024_Interpol.zip) as a ZIP file from  and unpack it on your computer.
+
+Then, you can open the `.Rproj` file and start working on the exercises in RStudio.
+
+
 ### Setup the environment
 
 Please download the data from the repository or take the USB-stick
@@ -276,45 +281,41 @@ Please download the data from the repository or take the USB-stick
 #------------------------------------------------------------------------------
 # Author: creuden@gmail.com
 # Description:  interpolates the air temp
+# Copyright:GPL (>= 3)  Date: 2024-08-28 
+#------------------------------------------------------------------------------
+
+# 0 ---- project setup ----
+
+#------------------------------------------------------------------------------
+# Author: creuden@gmail.com
+# Description:  interpolates the air temp
 # Copyright:GPL (>= 3)  Date: 2023-08-28 
 #------------------------------------------------------------------------------
 
 # 0 ---- project setup ----
 
-# load packages (if not installed please install via install.packages())
-library("raster")
-library("terra")
-library("sp")
-library("sf")
-library("dplyr")
-library("lwgeom")
-library("readxl")
-library("highfrequency")
-library("tidyverse")
-library("rprojroot")
-library("tibble")
-library("xts")
-library("data.table")
-library("mapview")
-library(stars)
-library(gstat)
+# load packages (if not installed please install)
+install.packages("remotes")
+pkg_list = c("raster","terra","sp","sf","dplyr","lwgeom","readxl","highfrequency","tidyverse","rprojroot","tibble","imputeTS","xts","data.table","mapview","stars","gstat")
+remotes::install_cran(pkg_list)
+lapply(pkg_list, require, character.only = TRUE)
 
 # create a string containing the current working directory
-wd=paste0(find_rstudio_root_file(),"/mc_session/data/")
+wd=paste0(find_rstudio_root_file(),"/data_2023/")
 
 # define time period to aggregate temp dat
-time_period = 3
+time_period = 1
 
 # multiplication factor for blowing up the Copernicus DEM
 blow_fac = 15
-
+shrink_fac = 5
 # reference system as proj4 string for old SP package related stuff
-crs = raster::crs("+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs")
-sfcrs <- st_crs("EPSG:32633")
+crs = raster::crs("+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs")
+sfcrs <- st_crs("EPSG:32632")
 
 # Copernicus DEM (https://land.copernicus.eu/imagery-in-situ/eu-dem/eu-dem-v1.1)
 fnDTM = paste0(wd,"copernicus_DEM.tif")  
-
+fnDTM = paste0(wd,"polsterhausDEM.tif")  
 # Weather Data adapt if you download a new file 
 # https://www.ecowitt.net/home/index?id=20166)
 # https://www.ecowitt.net/home/index?id=149300
@@ -329,26 +330,31 @@ fn_area =paste0(wd,"plot.shp")
 
 # rds file for saving the cleaned up weather data
 cleandata = paste0(wd,"climdata.RDS")
-
+```
+```{r read_clean_data, message=FALSE, warning=FALSE}
 # 1 ---- read data ----
 # read_sf("data/de_nuts1.gpkg") |> st_transform(crs) -> de
 # read DEM data
 DTM = terra::rast(fnDTM) # DTM.
 # increase resolution by 15
-DTM=disagg(DTM, fact=c(blow_fac, blow_fac)) 
+DTM=terra::aggregate(DTM, fact=c(shrink_fac, shrink_fac)) 
 #rename layer to altitude
+
 names(DTM)="altitude"
 r=DTM*0
+sDTM = st_as_stars(DTM)
+names(sDTM) = "altitude"
 
 # read station position data
- pos=st_read(fn_pos_data)
- # read station position data
+pos=st_read(fn_pos_data)
+# read station position data
 area=st_read(fn_area)
 # reproject the dataset to the project crs
 area=st_transform(area,crs)
 # read temperature data we need to skip row 1 due to excel format
 clim_dataFC29 = as_tibble(read_excel(fn_dataFC29, skip = 1)) 
 clim_dataDB2F = as_tibble(read_excel(fn_dataDB2F, skip = 1))
+
 
 ```
 
@@ -357,7 +363,7 @@ clim_dataDB2F = as_tibble(read_excel(fn_dataDB2F, skip = 1))
 We need to do an ugly cleaning job. This is basically the most
 cumbersome part of dealing with data analysis.
 
-```{r tempdata, message=FALSE, warning=FALSE}
+```{r cleandata, message=FALSE, warning=FALSE}
 # select the required cols
 tempFC29 = clim_dataFC29 %>% dplyr::select(c(1,2,32,36,40,44,48))
 tempDB2F = clim_dataDB2F %>% dplyr::select(c(1,25,29,33,37,41,45,49,53))
@@ -379,10 +385,14 @@ names(temp_fin) = temp_fin[1,]
 temp_fin=temp_fin[-1,]
 # replace names specially time by stationid
 names(temp_fin)[names(temp_fin) == 'time'] = 'stationid'
+# interpolate ts nas
+temp_fin[ c(2:9)] <- sapply(temp_fin[, c(2:9)], as.numeric)
+na_ma(temp_fin,weighting = "simple")
 # extract altitudes for positions
 pos$altitude= exactextractr::exact_extract(DTM,st_buffer(pos,1),"mean")
 # merge positions and values via id
 m=merge(pos,temp_fin)
+
 # make the var name working for gstat by replacing all patterns
 n= gsub(x = names(m),pattern = "-",replacement = "")
 n= gsub(x = n,pattern = " ",replacement = "")
@@ -399,7 +409,7 @@ saveRDS(m,cleandata)
 
 After the basic cleaning is finished we prepare some specific datasets according to the technical needs. 
 
-```{r , helperdata , message=FALSE, warning=FALSE}
+```{r , prepare_helper_data , message=FALSE, warning=FALSE}
 # grep the varnames for an interpolation loop
 vars=grep(glob2rx("A2023*"), n, value = TRUE)
 vars
@@ -429,32 +439,62 @@ p = vect(xyz, geom=c("x", "y"))
 voronoi = voronoi(p)
 
 # Nearest neighbor interpolation
-interpNN = interpNear(r, as.matrix(xyz),radius=100)
-
+interpNN = interpNear(r, as.matrix(xyz),radius=50)
+plot(interpNN)
 # Inverse Distance interpolation
-interpIDW = interpIDW(r, as.matrix(xyz), radius=300, power=2, smooth=1, maxPoints=3)
+interpIDW = interpIDW(r, as.matrix(xyz), radius=50, power=2, smooth=1, maxPoints=3)
 # ploting
 plot(interpIDW)
 
 # -gstat package
 # Inverse Distance interpolation
-idw_gstat <- gstat::idw(A20230829220000~1, m, st_as_stars(r),nmin = 3, maxdist = 100, idp = 2.0)
+idw_gstat <- gstat::idw(A20230829220000~1, m, st_as_stars(r),nmin = 3, maxdist = 50, idp = 2.0)
 # ploting
 plot(idw_gstat)
 
-# kriging
+# kriging gstat
 vm.auto = automap::autofitVariogram(formula = as.formula(paste("altitude", "~ 1")),
-                                      input_data = m)
-k <- krige(A20230829220000 ~ altitude, m, st_as_stars(DTM),
-                           vm.auto$var_model)
+                                    input_data = m)
+k <- krige(A20230829220000 ~ altitude, m, sDTM,
+           vm.auto$var_model)
 plot(k)
-
+names(k)="Temperature"
 crs(voronoi)=crs
 v=sf::st_as_sf(voronoi)
 # map it
-mapview(raster(interpNN) ,col=rainbow(25)) + 
- mapview( raster(interpIDW),col=rainbow(25)) + 
-  mapview(k,col=rainbow(25))+ v
+
+names(interpNN)="Temperature"
+tm_interpNN =tm_shape(interpNN) +
+  tm_raster( palette=rainbow(25)) +
+  tm_legend(outside = TRUE,title = "Temperature")+
+  tm_graticules()+
+  tm_layout(title = "Nearest Neighbor terra")
+names(interpIDW)="Temperature"
+tm_interpIDW =tm_shape(interpIDW) +
+  tm_raster( palette=rainbow(25)) +
+  tm_legend(outside = TRUE,title = "Temperature")+
+  tm_graticules()+
+  tm_layout(title = "Inverse Distance terra")
+names(idw_gstat)="Temperature"
+tm_idw_gstat =tm_shape(idw_gstat[1]) +
+  tm_raster( palette=rainbow(25)) +
+  tm_legend(outside = TRUE,title = "Temperature")+
+  tm_graticules()+
+  tm_layout(title = "Inverse Distance gstat")
+tm_vor =
+  tm_shape(v) +
+  tm_polygons(col = "temp", , palette=rainbow(25))+
+  tm_legend(outside = TRUE,title = "Temperature")+
+  tm_graticules()+
+  tm_layout(title = "Voronoi")
+tm_krige =tm_shape(k[1]) +
+  tm_raster( palette=rainbow(25)) +
+  tm_legend(outside = TRUE)+
+  tm_graticules()
+tmap_mode("view")
+tmap_arrange(tm_interpNN, tm_interpIDW, tm_idw_gstat,tm_vor,tm_krige)
+
+
    
 ```
 
