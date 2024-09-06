@@ -57,7 +57,7 @@ comments: false
 
 -   Friday (Waldhaus):
     -   09:00-10:00 Tidy up rooms
-    -   10:00-11:00 **Final Presentation of the group work**
+    -   10:00-11:00 **Final presentations of the group work**
     -   11:00-12:00 Check out of the guesthouse
     -   12:00-13:00 Outside: Workshop closing / evaluation
     -   14:00 **Departure**
