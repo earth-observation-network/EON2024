@@ -15,7 +15,7 @@ website:
   search: 
     location: navbar
     type: textbox
-  page-footer: "Earth Observation Network Harz Summerschool (2024)" 
+  page-footer: "Earth Observation Network Harz Summer School (2024)" 
   twitter-card:
     creator: "@gisma"
   # comments:
